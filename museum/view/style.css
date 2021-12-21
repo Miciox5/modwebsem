@@ -1,0 +1,69 @@
+html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    overflow: hidden;
+    vertical-align: center;
+    padding: 0.7%;
+    background-color: #7BBDE3;
+}
+#logo_img, .choice-navbar{
+    float: left;
+    margin: inherit;
+}
+
+.choice-navbar{
+    list-style-type: none;
+    display: flex;
+    justify-content: left;
+    font-size: larger;
+    margin: 5px;
+}
+ul.choice-navbar{
+    overflow: unset;
+}
+
+ul.choice-navbar li{
+    margin-right: 10%;
+    width: inherit;
+}
+ul.choice-navbar li button, ul.choice-navbar li button a{
+    margin-right: 3%;
+    padding: 1%;
+    text-decoration: none;
+    width: inherit;
+    border: #323232;
+    background-color: #7BBDE3;
+    font-size: medium;
+    transition-duration: 1s;
+    color: #0019ff;
+}
+
+#list-menu-item.button:hover{
+    color: #bbb;
+}
+.search-form{
+    float: right;
+    display: flex;
+    justify-content: left;
+    font-size: larger;
+    margin: 5px;
+}
+
+.search-form input[type=text] {
+    border: none;
+    font-size: medium;
+}
+
+.search-form button {
+    float: right;
+    background: #ddd;
+    border: none;
+    cursor: pointer;
+}

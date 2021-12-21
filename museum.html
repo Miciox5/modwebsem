@@ -1,0 +1,3769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Museum - La casa degli NFT</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAC40lEQVRYhe2UT0hUQRzHp6Iss1B3VZKIDbbdfW9mnoi4f3zzjkJQeOgS0SEIb1EWBGGlLLu460zQPQM1unUIIjA6rfpm6ZAhHjoIRVQUFUlEbG+euTsdXG1d3VL3bVD4g+9h+L35fT/8fvN7ADgY9aHY5fpIvK82HO9ysu66wxWOzbkjcekKx0a2ALYA/n2AGi3a6ArFezcidziecQygNhhrcUficjP6PwBqtGijKxy/thnVBePHywYoDsFhl53GV8SEcsTx4usCMLUewTVpc23BNvEzm6Neyf1+KcG2vwqwUjgrOJq2JmHftwmkVBRGTvncFodnbI7vChO/FRznCmHsNM7aHM9Yk7Df5iqsLMw9sMNOK2g+jS4IEz0UJv4iuJZb2RltWnB4UZqH6ioGAgAAGe5vtiZhtzDx7OoRadLmeM7m6IRjhnLMW2Vx1bA5GhAmnhIcz6/xNj4Ujsky8UspwfayjDPjsF2Y6L7N8Vzx/BfP+KPg6LbgSqd8DnfJW2CnbaLhfH5ephpqygJYvQU4Z3P82TLRsDDhUTnmrSq+Y3N0Mg+Xldy/zwEAnLMWZ3pHpNExmfLs/t0dOdVcbT0JeKxUwFP2VljjqiE47Jp53LTXNxhsUZjerTByXWX6VZWRs/4bIQ2ACv+UAomgDzLCISNZxAxZKMhIDjLy1JfsaK+I+eGBUBNk5E2x8RogX/PdcDZUqieWTSh5D6nOVKqfhoycUmlHFFIyu5RXqf7AcQDISCpv/tqbMBqK883RtmpISRoxQyJKPgGn3wNk5NEigDFa6hslqV/Kj+FdBQD0bshIDlKSLlVcoWQo36UhR80BAMB73lulMn0EMpJTqD6qJiOt3mho/8GbkT2BZNgDB/V+RI0fkOrT3kRIVQbaDizJm2hdNbINBxwk5xAj3yEjuV9rZ1iIkgxixkLBA83mz8uCjLwoGwAx0vOnFSy5mtR4VTaAQvVORMnwZgSpzkrV/QmdE2tKe46+MQAAAABJRU5ErkJggg==">
+    <link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABhklEQVQ4jbWPzStEURjG3yQLirlGKUnKFO45Z+SjmXvnnmthQcpCoVhYmD/AwmJiI3OvZuZc2U3UlKU0/gAslMw9JgvhHxAr2fko7r0jHSsl+TgbTz2Lt5731/MASEiJW9ONml2QyX6rsGalmnT74v8BDf12hxJfpV8d1uwNKUBYszabdFv84L8B9X0rESVmmUup2fme0cVhJWaZHw4NWL1Sew
+EAfDe6H3Dy6Ll456WEJsRZS630MwCAOI20ei5OBpxse5zcBZw8eS4uPpfIuDiCainIg9umBCU0GZzgLZ9Hn31OgoATL+CkLDGB5H1OKj4nFd/FBxUXJ0UZNb4edw/6nLyJXaj5FeCVyPLNIVmYK8TG1IwWb16L1gEACAFV90ftoT8bdOX0EeyY99gxBXZMgRz6qGb1KantAACI0UvE6F5XJqEjpsdURouI0Vt5gGOUkUNnPu7ObGIIMfNaGqDmjDRi9FZldF1lRgYzeqUyeoiY4ag5Iy3RgOYRM8+/M2bG8efsO4hGrpmJseyMAAAAAElFTkSuQmCC">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+    <style>
+        #pylode {
+            position: fixed;
+            top: 130px;
+            left: -60px;
+            font-size: small;
+            transform: rotate(-90deg);
+            color: grey;
+        }
+        #pylode a {
+            font-size: 2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #005A9C;
+        }
+        #pylode a:hover {
+            color: #333;
+        }
+
+        .cardinality {
+            font-style: italic;
+            color: #aa00aa;
+        }
+
+        dt {
+            font-weight: bold;
+            padding: 5px 0 5px 0;
+        }
+
+        ul.hlist {
+            list-style-type: none;
+            border: 1px solid navy;
+            padding:5px;
+            background-color: #F4FFFF;
+        }
+
+        ul.hierarchy {
+            border: 1px solid navy;
+            padding: 5px 25px 5px 25px;
+            background-color: #F4FFFF;
+        }
+
+
+        ul.hlist li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .entity {
+            border: 1px solid navy;
+            margin:5px 0 5px 0;
+            padding: 5px;
+        }
+
+        .entity th {
+            width: 150px;
+            vertical-align: top;
+        }
+
+        .entity th,
+        .entity td {
+            padding-bottom: 20px;
+        }
+
+        .entity table th {
+            text-align: left;
+        }
+
+        section#overview img {
+            max-width: 1000px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: left
+        }
+        h1, h2, h3 {
+            color: #005A9C; background: white
+        }
+        h1 {
+            font: 170% sans-serif;
+            line-height: 110%;
+        }
+        h2 {
+            font: 140% sans-serif;
+            margin-top:40px;
+        }
+        h3 {
+            font: 120% sans-serif;
+            margin-top: 3px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid navy;
+        }
+        h4 { font: bold 100% sans-serif }
+        h5 { font: italic 100% sans-serif }
+        h6 { font: small-caps 100% sans-serif }
+
+
+        body {
+            padding: 2em 70px 2em 70px;
+            margin: 0;
+            font-family: sans-serif;
+            color: black;
+            background: white;
+            background-position: top left;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            text-align: justify;
+        }
+
+        section {
+            max-width: 1500px;
+        }
+
+        .figure {
+            margin-bottom: 20px;
+        }
+
+        :link { color: #00C; background: transparent }
+        :visited { color: #609; background: transparent }
+        a:active { color: #C00; background: transparent }
+
+        .sup-c,
+        .sup-op,
+        .sup-fp,
+        .sup-dp,
+        .sup-ap,
+        .sup-p,
+        .sup-ni,
+        .sup-con,
+        .sup-col {
+            cursor:help;
+            margin-left: 3px;
+        }
+
+        .sup-c {
+            color:orange;
+        }
+
+        .sup-op {
+            color:navy;
+        }
+
+        .sup-fp {
+            color:lightskyblue;
+        }
+
+        .sup-dp {
+            color:green;
+        }
+
+        .sup-ap {
+            color:darkred;
+        }
+
+        .sup-p {
+            color:black;
+        }
+
+        .sup-ni {
+            color:brown;
+        }
+
+        .sup-con {
+            color:orange;
+        }
+
+        .sup-col {
+            color:darkred;
+        }
+
+        code {
+            font-size: large;
+            color: darkred;
+        }
+
+        /* less prominent links for properties */
+        .proplink {
+            color: #336;
+            text-decoration: none;
+        }
+    </style>
+    
+    <script type="application/ld+json">
+      [
+  {
+    "@id": "http://www.semanticweb.com/museum",
+    "@type": [
+      "https://schema.org/DefinedTermSet"
+    ],
+    "https://schema.org/description": [
+      {
+        "@value": "<p>L'ontologia museum rappresenta la la base di conoscenza di un e-commerce ove è acquisto di NFT legati ad opere d'arte. Oltre ad avere uno stretto legame con la risorsa FRBR (per poter sfruttare una descrizione formale di opere d'arte), incorpora parte del vocabolario FOAF per la descrizione di un utente nell'e-commerce.</p>"
+      }
+    ],
+    "https://schema.org/name": [
+      {
+        "@value": "Museum - La casa degli NFT"
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body>
+  <div id="pylode">made by <a href="http://github.com/rdflib/pyLODE">
+    <span style="color:#329545;">p</span><span style="color:#f9cb33;">y</span>LODE</a>
+    <span style="font-size:smaller;">2.9.3</span>
+  </div>
+  <h1>Museum - La casa degli NFT</h1>
+<section id="metadata">
+    <h2 style="display:none;">Metadata</h2>
+    <dl>
+        <dt>URI</dt>
+        <dd><code>http://www.semanticweb.com/museum</code></dd>
+        <dt><a class="proplink" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/creator">Creator</a>(s)</dt>
+        <dd>
+            Matteo Miceli<br/>
+        </dd>
+        <dt>Ontology RDF</dt>
+        <dd><a href="museum.ttl">RDF (turtle)</a></dd>
+    </dl>
+    <h2>Description</h2>
+    <div id="description">
+        <p>L'ontologia museum rappresenta la la base di conoscenza di un e-commerce ove è acquisto di NFT legati ad opere d'arte. Oltre ad avere uno stretto legame con la risorsa FRBR (per poter sfruttare una descrizione formale di opere d'arte), incorpora parte del vocabolario FOAF per la descrizione di un utente nell'e-commerce.</p>
+    </div>
+</section>
+<section id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#objectproperties">Object Properties</a></li>
+        <li><a href="#functionalproperties">Functional Properties</a></li>
+        <li><a href="#datatypeproperties">Datatype Properties</a></li>
+        <li><a href="#annotationproperties">Annotation Properties</a></li>
+        <li><a href="#namedindividuals">Named Individuals</a></li>
+        <li><a href="#namespaces">Namespaces</a></li>
+        <li><a href="#legend">Legend</a></li>
+    </ol>
+</section>
+<section id="overview">
+    <h2>Overview</h2>
+    <div class="figure">
+        <div style="width:500px; height:50px; background-color: lightgrey; border:solid 2px grey; padding:10px;margin-bottom:5px; text-align:center;">Pictures say 1,000 words</div>
+        <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+    </div>
+</section>
+  <section id="classes">
+    <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+      <li><a href="http://purl.org/vocab/frbr/core#CorporateBody">frbr:CorporateBody</a></li>
+      <li><a href="http://purl.org/vocab/frbr/core#Expression">frbr:Expression</a></li>
+      <li><a href="http://purl.org/vocab/frbr/core#Item">frbr:Item</a></li>
+      <li><a href="http://purl.org/vocab/frbr/core#Manifestation">frbr:Manifestation</a></li>
+      <li><a href="http://purl.org/vocab/frbr/core#Person">frbr:Person</a></li>
+      <li><a href="http://purl.org/vocab/frbr/core#ResponsableEntity">frbr:ResponsableEntity</a></li>
+      <li><a href="http://purl.org/vocab/frbr/core#Work">frbr:Work</a></li>
+      <li><a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag</a></li>
+      <li><a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection</a></li>
+      <li><a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item</a></li>
+      <li><a href="http://www.semanticweb.org/museum#3DDesigner">http://www.semanticweb.org/museum#3DDesigner</a></li>
+      <li><a href="http://www.semanticweb.org/museum#ArtExpression">http://www.semanticweb.org/museum#ArtExpression</a></li>
+      <li><a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a></li>
+      <li><a href="http://www.semanticweb.org/museum#Artist">http://www.semanticweb.org/museum#Artist</a></li>
+      <li><a href="http://www.semanticweb.org/museum#Basket">http://www.semanticweb.org/museum#Basket</a></li>
+      <li><a href="http://www.semanticweb.org/museum#Book">http://www.semanticweb.org/museum#Book</a></li>
+      <li><a href="http://www.semanticweb.org/museum#DigitalGallery">http://www.semanticweb.org/museum#DigitalGallery</a></li>
+      <li><a href="http://www.semanticweb.org/museum#ERC-1155">http://www.semanticweb.org/museum#ERC-1155</a></li>
+      <li><a href="http://www.semanticweb.org/museum#ERC-721">http://www.semanticweb.org/museum#ERC-721</a></li>
+      <li><a href="http://www.semanticweb.org/museum#GIF">http://www.semanticweb.org/museum#GIF</a></li>
+      <li><a href="http://www.semanticweb.org/museum#Gallery">http://www.semanticweb.org/museum#Gallery</a></li>
+      <li><a href="http://www.semanticweb.org/museum#GraphicDesigner">http://www.semanticweb.org/museum#GraphicDesigner</a></li>
+      <li><a href="http://www.semanticweb.org/museum#Image">http://www.semanticweb.org/museum#Image</a></li>
+      <li><a href="http://www.semanticweb.org/museum#LiteraryWork">http://www.semanticweb.org/museum#LiteraryWork</a></li>
+      <li><a href="http://www.semanticweb.org/museum#MultimediaArtist">http://www.semanticweb.org/museum#MultimediaArtist</a></li>
+      <li><a href="http://www.semanticweb.org/museum#MultimediaWork">http://www.semanticweb.org/museum#MultimediaWork</a></li>
+      <li><a href="http://www.semanticweb.org/museum#Musician">http://www.semanticweb.org/museum#Musician</a></li>
+      <li><a href="http://www.semanticweb.org/museum#NFT">http://www.semanticweb.org/museum#NFT</a></li>
+      <li><a href="http://www.semanticweb.org/museum#Paint">http://www.semanticweb.org/museum#Paint</a></li>
+      <li><a href="http://www.semanticweb.org/museum#Painter">http://www.semanticweb.org/museum#Painter</a></li>
+      <li><a href="http://www.semanticweb.org/museum#PhysicalGallery">http://www.semanticweb.org/museum#PhysicalGallery</a></li>
+      <li><a href="http://www.semanticweb.org/museum#Sculptor">http://www.semanticweb.org/museum#Sculptor</a></li>
+      <li><a href="http://www.semanticweb.org/museum#Sculpture">http://www.semanticweb.org/museum#Sculpture</a></li>
+      <li><a href="http://www.semanticweb.org/museum#ShortFilm">http://www.semanticweb.org/museum#ShortFilm</a></li>
+      <li><a href="http://www.semanticweb.org/museum#ShortStory">http://www.semanticweb.org/museum#ShortStory</a></li>
+      <li><a href="http://www.semanticweb.org/museum#TokenizedExpression1155">http://www.semanticweb.org/museum#TokenizedExpression1155</a></li>
+      <li><a href="http://www.semanticweb.org/museum#TokenizedExpression721">http://www.semanticweb.org/museum#TokenizedExpression721</a></li>
+      <li><a href="http://www.semanticweb.org/museum#Track">http://www.semanticweb.org/museum#Track</a></li>
+      <li><a href="http://www.semanticweb.org/museum#User">http://www.semanticweb.org/museum#User</a></li>
+      <li><a href="http://www.semanticweb.org/museum#Video">http://www.semanticweb.org/museum#Video</a></li>
+      <li><a href="http://www.semanticweb.org/museum#VideoMaker">http://www.semanticweb.org/museum#VideoMaker</a></li>
+      <li><a href="http://www.semanticweb.org/museum#Wallet">http://www.semanticweb.org/museum#Wallet</a></li>
+      <li><a href="http://www.semanticweb.org/museum#Writer">http://www.semanticweb.org/museum#Writer</a></li>
+      <li><a href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a></li>
+      <li><a href="http://xmlns.com/foaf/0.1/Group">foaf:Group</a></li>
+      <li><a href="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a></li>
+      <li><a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a></li>
+    </ul>
+    <div class="entity class" id="CorporateBody">
+        <h3>
+          Corporate Body<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#CorporateBody" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#CorporateBody</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#ResponsableEntity">frbr:ResponsableEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Expression">
+        <h3>
+          Expression<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Expression" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#Expression</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ERC-721">http://www.semanticweb.org/museum#ERC-721</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#ArtExpression">http://www.semanticweb.org/museum#ArtExpression</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#embodiment">frbr:embodiment</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#realizer">frbr:realizer</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://purl.org/vocab/frbr/core#realization">frbr:realization</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#TokenCenacolo1">http://www.semanticweb.org/museum#TokenCenacolo1</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenEverydays">http://www.semanticweb.org/museum#TokenEverydays</a><br/>
+                    <a href="http://www.semanticweb.org/museum#Everydays">http://www.semanticweb.org/museum#Everydays</a><br/>
+                    <a href="http://www.semanticweb.org/museum#Monna_Lisa">http://www.semanticweb.org/museum#Monna_Lisa</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenMonna">http://www.semanticweb.org/museum#TokenMonna</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenCenacolo2">http://www.semanticweb.org/museum#TokenCenacolo2</a><br/>
+                    <a href="http://www.semanticweb.org/museum#Cenacolo">http://www.semanticweb.org/museum#Cenacolo</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Item">
+        <h3>
+          Item<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Item" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#Item</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Manifestation">frbr:Manifestation</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ERC-1155">http://www.semanticweb.org/museum#ERC-1155</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#ERC-721">http://www.semanticweb.org/museum#ERC-721</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#owner">frbr:owner</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#exemplar">frbr:exemplar</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#TokenCenacolo1">http://www.semanticweb.org/museum#TokenCenacolo1</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenCenacolo2">http://www.semanticweb.org/museum#TokenCenacolo2</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenMonna">http://www.semanticweb.org/museum#TokenMonna</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenEverydays">http://www.semanticweb.org/museum#TokenEverydays</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Manifestation">
+        <h3>
+          Manifestation<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Manifestation" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#Manifestation</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Una classe Manifestazione rappresenta una realizzazione fisica dell'Espressione dell'opera che viene rappresentata dall'Item</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Item">frbr:Item</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#NFT">http://www.semanticweb.org/museum#NFT</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#exemplar">frbr:exemplar</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#producer">frbr:producer</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://purl.org/vocab/frbr/core#embodiment">frbr:embodiment</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#TokenCenacolo1">http://www.semanticweb.org/museum#TokenCenacolo1</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenCenacolo2">http://www.semanticweb.org/museum#TokenCenacolo2</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenEverydays">http://www.semanticweb.org/museum#TokenEverydays</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenMonna">http://www.semanticweb.org/museum#TokenMonna</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="(frbr)Person">
+        <h3>
+          (frbr) Person<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#(frbr)Person" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#Person</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#ResponsableEntity">frbr:ResponsableEntity</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Artist">http://www.semanticweb.org/museum#Artist</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Beeple">http://www.semanticweb.org/museum#Beeple</a><br/>
+                    <a href="http://www.semanticweb.org/museum#Leonardo_Da_Vinci">http://www.semanticweb.org/museum#Leonardo_Da_Vinci</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ResponsableEntity">
+        <h3>
+          Responsable Entity<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#ResponsableEntity" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#ResponsableEntity</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Person">frbr:Person</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/vocab/frbr/core#CorporateBody">frbr:CorporateBody</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#realizer">frbr:realizer</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://purl.org/vocab/frbr/core#creator">frbr:creator</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://purl.org/vocab/frbr/core#producer">frbr:producer</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#owner">frbr:owner</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Beeple">http://www.semanticweb.org/museum#Beeple</a><br/>
+                    <a href="http://www.semanticweb.org/museum#Leonardo_Da_Vinci">http://www.semanticweb.org/museum#Leonardo_Da_Vinci</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Work">
+        <h3>
+          Work<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Work" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#Work</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#TokenizedExpression721">http://www.semanticweb.org/museum#TokenizedExpression721</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#realization">frbr:realization</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#creator">frbr:creator</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#TokenEverydays">http://www.semanticweb.org/museum#TokenEverydays</a><br/>
+                    <a href="http://www.semanticweb.org/museum#Everydays">http://www.semanticweb.org/museum#Everydays</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenCenacolo1">http://www.semanticweb.org/museum#TokenCenacolo1</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenMonna">http://www.semanticweb.org/museum#TokenMonna</a><br/>
+                    <a href="http://www.semanticweb.org/museum#Monna_Lisa">http://www.semanticweb.org/museum#Monna_Lisa</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenCenacolo2">http://www.semanticweb.org/museum#TokenCenacolo2</a><br/>
+                    <a href="http://www.semanticweb.org/museum#Cenacolo">http://www.semanticweb.org/museum#Cenacolo</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="(collection)Bag">
+        <h3>
+          (collection) Bag<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#(collection)Bag" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Bag - Collection that can have a number of copies of each object</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_item">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_item</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Collection">
+        <h3>
+          Collection<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Collection" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Any container for entities that share one or more common properties. E.g. "stone objects", "the nurses", "the Louvre Aegyptian collection". A collection is not a logical class: a collection is a first-order entity, while a class is a second-order one.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#Basket">http://www.semanticweb.org/museum#Basket</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#Wallet">http://www.semanticweb.org/museum#Wallet</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#size">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#size</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_member">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_member</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_member">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_member</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#BasketUser2">http://www.semanticweb.org/museum#BasketUser2</a><br/>
+                    <a href="http://www.semanticweb.org/museum#WalletUser1">http://www.semanticweb.org/museum#WalletUser1</a><br/>
+                    <a href="http://www.semanticweb.org/museum#WalletUser2">http://www.semanticweb.org/museum#WalletUser2</a><br/>
+                    <a href="http://www.semanticweb.org/museum#BasketUser1">http://www.semanticweb.org/museum#BasketUser1</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="(inbag)item">
+        <h3>
+          (in bag) item<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#(inbag)item" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item</code></td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#item_content">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#item_content</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="http://www.semanticweb.org/museum#NFT">http://www.semanticweb.org/museum#NFT</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#item_content">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#item_content</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_item">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_item</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="3DDesigner">
+        <h3>
+          3DDesigner<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#3DDesigner" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#3DDesigner</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#MultimediaArtist">http://www.semanticweb.org/museum#MultimediaArtist</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ArtExpression">
+        <h3>
+          ArtExpression<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#ArtExpression" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#ArtExpression</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Expression">frbr:Expression</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#TokenizedExpression1155">http://www.semanticweb.org/museum#TokenizedExpression1155</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenizedExpression721">http://www.semanticweb.org/museum#TokenizedExpression721</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#haToken">http://www.semanticweb.org/museum#haToken</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#detiene">http://www.semanticweb.org/museum#detiene</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#tokenDiOpera">http://www.semanticweb.org/museum#tokenDiOpera</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Cenacolo">http://www.semanticweb.org/museum#Cenacolo</a><br/>
+                    <a href="http://www.semanticweb.org/museum#Monna_Lisa">http://www.semanticweb.org/museum#Monna_Lisa</a><br/>
+                    <a href="http://www.semanticweb.org/museum#Everydays">http://www.semanticweb.org/museum#Everydays</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ArtWork">
+        <h3>
+          ArtWork<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#ArtWork" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#ArtWork</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Una classe Tipologia Opera corrisponde alla definizione astratta di un'opera d'arte.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Work">frbr:Work</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#MultimediaWork">http://www.semanticweb.org/museum#MultimediaWork</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#Paint">http://www.semanticweb.org/museum#Paint</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#Track">http://www.semanticweb.org/museum#Track</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#Sculpture">http://www.semanticweb.org/museum#Sculpture</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#LiteraryWork">http://www.semanticweb.org/museum#LiteraryWork</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#ERC-721">http://www.semanticweb.org/museum#ERC-721</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#titoloOpera">http://www.semanticweb.org/museum#titoloOpera</a><sup class="sup-fp" title="functional property">fp</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#tokenDiOpera">http://www.semanticweb.org/museum#tokenDiOpera</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#espone">http://www.semanticweb.org/museum#espone</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#haCreato">http://www.semanticweb.org/museum#haCreato</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Everydays">http://www.semanticweb.org/museum#Everydays</a><br/>
+                    <a href="http://www.semanticweb.org/museum#Monna_Lisa">http://www.semanticweb.org/museum#Monna_Lisa</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenMonna">http://www.semanticweb.org/museum#TokenMonna</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenCenacolo2">http://www.semanticweb.org/museum#TokenCenacolo2</a><br/>
+                    <a href="http://www.semanticweb.org/museum#Cenacolo">http://www.semanticweb.org/museum#Cenacolo</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenCenacolo1">http://www.semanticweb.org/museum#TokenCenacolo1</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenEverydays">http://www.semanticweb.org/museum#TokenEverydays</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Artist">
+        <h3>
+          Artist<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Artist" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#Artist</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Person">frbr:Person</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Musician">http://www.semanticweb.org/museum#Musician</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#MultimediaArtist">http://www.semanticweb.org/museum#MultimediaArtist</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#Writer">http://www.semanticweb.org/museum#Writer</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#Sculptor">http://www.semanticweb.org/museum#Sculptor</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#Painter">http://www.semanticweb.org/museum#Painter</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#haCreato">http://www.semanticweb.org/museum#haCreato</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#nomeArtista">http://www.semanticweb.org/museum#nomeArtista</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#cognomeArtista">http://www.semanticweb.org/museum#cognomeArtista</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Leonardo_Da_Vinci">http://www.semanticweb.org/museum#Leonardo_Da_Vinci</a><br/>
+                    <a href="http://www.semanticweb.org/museum#Beeple">http://www.semanticweb.org/museum#Beeple</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Basket">
+        <h3>
+          Basket<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Basket" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#Basket</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#carrelloDi">http://www.semanticweb.org/museum#carrelloDi</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#contiene">http://www.semanticweb.org/museum#contiene</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#BasketUser1">http://www.semanticweb.org/museum#BasketUser1</a><br/>
+                    <a href="http://www.semanticweb.org/museum#BasketUser2">http://www.semanticweb.org/museum#BasketUser2</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Book">
+        <h3>
+          Book<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Book" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#Book</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#LiteraryWork">http://www.semanticweb.org/museum#LiteraryWork</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="DigitalGallery">
+        <h3>
+          Digital Gallery<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#DigitalGallery" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#DigitalGallery</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Gallery">http://www.semanticweb.org/museum#Gallery</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ubicazioneDIgitale">http://www.semanticweb.org/museum#ubicazioneDIgitale</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#PieceEarth2">http://www.semanticweb.org/museum#PieceEarth2</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ERC-1155">
+        <h3>
+          ERC-1155<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#ERC-1155" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#ERC-1155</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Item">frbr:Item</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#ERC-721">http://www.semanticweb.org/museum#ERC-721</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#NFT">http://www.semanticweb.org/museum#NFT</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#TokenCenacolo1">http://www.semanticweb.org/museum#TokenCenacolo1</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenCenacolo2">http://www.semanticweb.org/museum#TokenCenacolo2</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ERC-721">
+        <h3>
+          ERC-721<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#ERC-721" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#ERC-721</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#NFT">http://www.semanticweb.org/museum#NFT</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/vocab/frbr/core#Expression">frbr:Expression</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/vocab/frbr/core#Item">frbr:Item</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ERC-1155">http://www.semanticweb.org/museum#ERC-1155</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#TokenEverydays">http://www.semanticweb.org/museum#TokenEverydays</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenCenacolo1">http://www.semanticweb.org/museum#TokenCenacolo1</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenCenacolo2">http://www.semanticweb.org/museum#TokenCenacolo2</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenMonna">http://www.semanticweb.org/museum#TokenMonna</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="GIF">
+        <h3>
+          GIF<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#GIF" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#GIF</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Video">http://www.semanticweb.org/museum#Video</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Gallery">
+        <h3>
+          Gallery<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Gallery" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#Gallery</code></td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#PhysicalGallery">http://www.semanticweb.org/museum#PhysicalGallery</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#DigitalGallery">http://www.semanticweb.org/museum#DigitalGallery</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#nomeGalleria">http://www.semanticweb.org/museum#nomeGalleria</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#espone">http://www.semanticweb.org/museum#espone</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#PieceEarth2">http://www.semanticweb.org/museum#PieceEarth2</a><br/>
+                    <a href="http://www.semanticweb.org/museum#MuseoDelCenacoloVInciano">http://www.semanticweb.org/museum#MuseoDelCenacoloVInciano</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="GraphicDesigner">
+        <h3>
+          Graphic Designer<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#GraphicDesigner" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#GraphicDesigner</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#MultimediaArtist">http://www.semanticweb.org/museum#MultimediaArtist</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#haDisegnato">http://www.semanticweb.org/museum#haDisegnato</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Beeple">http://www.semanticweb.org/museum#Beeple</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Image">
+        <h3>
+          Image<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Image" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#Image</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#MultimediaWork">http://www.semanticweb.org/museum#MultimediaWork</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#haDisegnato">http://www.semanticweb.org/museum#haDisegnato</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Everydays">http://www.semanticweb.org/museum#Everydays</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="LiteraryWork">
+        <h3>
+          Literary Work<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#LiteraryWork" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#LiteraryWork</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ShortStory">http://www.semanticweb.org/museum#ShortStory</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#Book">http://www.semanticweb.org/museum#Book</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Contentcreator">
+        <h3>
+          Content creator<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Contentcreator" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#MultimediaArtist</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Artist">http://www.semanticweb.org/museum#Artist</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#3DDesigner">http://www.semanticweb.org/museum#3DDesigner</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#GraphicDesigner">http://www.semanticweb.org/museum#GraphicDesigner</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#VideoMaker">http://www.semanticweb.org/museum#VideoMaker</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Beeple">http://www.semanticweb.org/museum#Beeple</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="MultimediaWork">
+        <h3>
+          Multimedia Work<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#MultimediaWork" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#MultimediaWork</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Image">http://www.semanticweb.org/museum#Image</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#Video">http://www.semanticweb.org/museum#Video</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Everydays">http://www.semanticweb.org/museum#Everydays</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Musician">
+        <h3>
+          Musician<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Musician" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#Musician</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Artist">http://www.semanticweb.org/museum#Artist</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Non-FungibleToken">
+        <h3>
+          Non-Fungible Token<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Non-FungibleToken" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#NFT</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Manifestation">frbr:Manifestation</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ERC-721">http://www.semanticweb.org/museum#ERC-721</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#ERC-1155">http://www.semanticweb.org/museum#ERC-1155</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#nomeNFT">http://www.semanticweb.org/museum#nomeNFT</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#valoreNFT">http://www.semanticweb.org/museum#valoreNFT</a><sup class="sup-fp" title="functional property">fp</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#idBlockchain">http://www.semanticweb.org/museum#idBlockchain</a><sup class="sup-fp" title="functional property">fp</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#haPosizioneIn">http://www.semanticweb.org/museum#haPosizioneIn</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#possiede">http://www.semanticweb.org/museum#possiede</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#contiene">http://www.semanticweb.org/museum#contiene</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#haToken">http://www.semanticweb.org/museum#haToken</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#TokenMonna">http://www.semanticweb.org/museum#TokenMonna</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenCenacolo1">http://www.semanticweb.org/museum#TokenCenacolo1</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenEverydays">http://www.semanticweb.org/museum#TokenEverydays</a><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenCenacolo2">http://www.semanticweb.org/museum#TokenCenacolo2</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Paint">
+        <h3>
+          Paint<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Paint" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#Paint</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Una classe Dipinto rappresenta una tipologia specifica della classe TIpologia Opera. In questo caso viene rappresentato un qualsiasi dipinto.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#haDipinto">http://www.semanticweb.org/museum#haDipinto</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Cenacolo">http://www.semanticweb.org/museum#Cenacolo</a><br/>
+                    <a href="http://www.semanticweb.org/museum#Monna_Lisa">http://www.semanticweb.org/museum#Monna_Lisa</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Painter">
+        <h3>
+          Painter<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Painter" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#Painter</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Artist">http://www.semanticweb.org/museum#Artist</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#haDipinto">http://www.semanticweb.org/museum#haDipinto</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Leonardo_Da_Vinci">http://www.semanticweb.org/museum#Leonardo_Da_Vinci</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="PhysicalGallery">
+        <h3>
+          Physical Gallery<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#PhysicalGallery" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#PhysicalGallery</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Gallery">http://www.semanticweb.org/museum#Gallery</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ubicazioneFIsica">http://www.semanticweb.org/museum#ubicazioneFIsica</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#MuseoDelCenacoloVInciano">http://www.semanticweb.org/museum#MuseoDelCenacoloVInciano</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Sculptor">
+        <h3>
+          Sculptor<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Sculptor" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#Sculptor</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Artist">http://www.semanticweb.org/museum#Artist</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Sculpture">
+        <h3>
+          Sculpture<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Sculpture" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#Sculpture</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ShortFilm">
+        <h3>
+          Short Film<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#ShortFilm" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#ShortFilm</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Video">http://www.semanticweb.org/museum#Video</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ShortStory">
+        <h3>
+          Short Story<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#ShortStory" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#ShortStory</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#LiteraryWork">http://www.semanticweb.org/museum#LiteraryWork</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="TokenizedExpression1155">
+        <h3>
+          TokenizedExpression1155<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#TokenizedExpression1155" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#TokenizedExpression1155</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ArtExpression">http://www.semanticweb.org/museum#ArtExpression</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#TokenizedExpression721">http://www.semanticweb.org/museum#TokenizedExpression721</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="TokenizedExpression721">
+        <h3>
+          TokenizedExpression721<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#TokenizedExpression721" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#TokenizedExpression721</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Work">frbr:Work</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#ArtExpression">http://www.semanticweb.org/museum#ArtExpression</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#TokenizedExpression1155">http://www.semanticweb.org/museum#TokenizedExpression1155</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Track">
+        <h3>
+          Track<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Track" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#Track</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="User">
+        <h3>
+          User<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#User" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#User</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#haWallet">http://www.semanticweb.org/museum#haWallet</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#detiene">http://www.semanticweb.org/museum#detiene</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#possiede">http://www.semanticweb.org/museum#possiede</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#carrelloDi">http://www.semanticweb.org/museum#carrelloDi</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#User1">http://www.semanticweb.org/museum#User1</a><br/>
+                    <a href="http://www.semanticweb.org/museum#User2">http://www.semanticweb.org/museum#User2</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Video">
+        <h3>
+          Video<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Video" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#Video</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Una classe VIdeo rappresenta una tipologia specifica della classe Opera Multimediale. In questo caso viene rappresentato un qualsiasi video. Questa classe corrisponde ad una macro categoria.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#MultimediaWork">http://www.semanticweb.org/museum#MultimediaWork</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#GIF">http://www.semanticweb.org/museum#GIF</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#ShortFilm">http://www.semanticweb.org/museum#ShortFilm</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="VideoMaker">
+        <h3>
+          Video Maker<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#VideoMaker" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#VideoMaker</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#MultimediaArtist">http://www.semanticweb.org/museum#MultimediaArtist</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Wallet">
+        <h3>
+          Wallet<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Wallet" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#Wallet</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#haPosizioneIn">http://www.semanticweb.org/museum#haPosizioneIn</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://www.semanticweb.org/museum#contoCrypto">http://www.semanticweb.org/museum#contoCrypto</a><sup class="sup-fp" title="functional property">fp</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#haWallet">http://www.semanticweb.org/museum#haWallet</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#WalletUser1">http://www.semanticweb.org/museum#WalletUser1</a><br/>
+                    <a href="http://www.semanticweb.org/museum#WalletUser2">http://www.semanticweb.org/museum#WalletUser2</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Writer">
+        <h3>
+          Writer<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Writer" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#Writer</code></td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Artist">http://www.semanticweb.org/museum#Artist</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Agent">
+        <h3>
+          Agent<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Agent" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/Agent</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Una classe Agent è una classe di agenti. Una sottoclasse ben nota è Persona, che rappresenta le persone. Altri tipi di agenti includono Organizzazione e Gruppo.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Group">foaf:Group</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/gender">foaf:gender</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://xmlns.com/foaf/0.1/mbox">foaf:mbox</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://xmlns.com/foaf/0.1/age">foaf:age</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://xmlns.com/foaf/0.1/birthday">foaf:birthday</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#User1">http://www.semanticweb.org/museum#User1</a><br/>
+                    <a href="http://www.semanticweb.org/museum#User2">http://www.semanticweb.org/museum#User2</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Group">
+        <h3>
+          Group<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Group" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/Group</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Un Gruppo rappresemta una collezione di agenti (e può svolgere esso stesso il ruolo di un Agente, cioè qualcosa che può eseguire azioni).</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/member">foaf:member</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Organization">
+        <h3>
+          Organization<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Organization" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/Organization</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Una classe Organizzazione rappresenta un tipo di Agente corrispondente a istituzioni sociali come aziende, società, ecc.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Person">
+        <h3>
+          Person<sup title="class" class="sup-c">c</sup>
+          <span style="float:right; margin-right:10px; font-size:smaller;"><a href="#Person" title="fragment link to here">#</a> <a href="#classes" title="Classes Index">Classes</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/Person</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Una classe Persona rappresenta persone. Qualcosa/Qualcuno è una Persona indipendentemente che sia viva o morta.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#User">http://www.semanticweb.org/museum#User</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/surname">foaf:surname</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://xmlns.com/foaf/0.1/lastName">foaf:lastName</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="http://xmlns.com/foaf/0.1/member">foaf:member</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="http://xmlns.com/foaf/0.1/firstName">foaf:firstName</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Members</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#User1">http://www.semanticweb.org/museum#User1</a><br/>
+                    <a href="http://www.semanticweb.org/museum#User2">http://www.semanticweb.org/museum#User2</a><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section id="objectproperties">
+    <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#creator1">creator</a></li>
+        <li><a href="#creatorof">creator of</a></li>
+        <li><a href="#embodiment">embodiment</a></li>
+        <li><a href="#embodimentof">embodiment of</a></li>
+        <li><a href="#exemplar">exemplar</a></li>
+        <li><a href="#exemplarof">exemplar of</a></li>
+        <li><a href="#owner">owner</a></li>
+        <li><a href="#ownerof">owner of</a></li>
+        <li><a href="#producer">producer</a></li>
+        <li><a href="#producerof">producer of</a></li>
+        <li><a href="#realization">realization</a></li>
+        <li><a href="#realizationof">realization of</a></li>
+        <li><a href="#realizer">realizer</a></li>
+        <li><a href="#realizerof">realizer of</a></li>
+        <li><a href="#hasitem">has item</a></li>
+        <li><a href="#hasmember">has member</a></li>
+        <li><a href="#ismemberof">is member of</a></li>
+        <li><a href="#itemcontent">item content</a></li>
+        <li><a href="#itemof">item of</a></li>
+        <li><a href="#carrelloDi">carrelloDi</a></li>
+        <li><a href="#contenutoIn">contenutoIn</a></li>
+        <li><a href="#contiene">contiene</a></li>
+        <li><a href="#creataDa">creataDa</a></li>
+        <li><a href="#detiene">detiene</a></li>
+        <li><a href="#dipintoDa">dipintoDa</a></li>
+        <li><a href="#disegnatoDa">disegnatoDa</a></li>
+        <li><a href="#espone">espone</a></li>
+        <li><a href="#espostaIn">espostaIn</a></li>
+        <li><a href="#haCarrello">haCarrello</a></li>
+        <li><a href="#haCreato">haCreato</a></li>
+        <li><a href="#haDipinto">haDipinto</a></li>
+        <li><a href="#haDisegnato">haDisegnato</a></li>
+        <li><a href="#haPosizioneIn">haPosizioneIn</a></li>
+        <li><a href="#haToken">haToken</a></li>
+        <li><a href="#haWallet">haWallet</a></li>
+        <li><a href="#operaTokenizzata">operaTokenizzata</a></li>
+        <li><a href="#posizionatoIn">posizionatoIn</a></li>
+        <li><a href="#possiede">possiede</a></li>
+        <li><a href="#tokendi">token di</a></li>
+        <li><a href="#tokendiopera">token di opera</a></li>
+        <li><a href="#walletDi">walletDi</a></li>
+        <li><a href="#DetenutoDa">èDetenutoDa</a></li>
+        <li><a href="#PossedutoDa">èPossedutoDa</a></li>
+        <li><a href="#(foaf)member">(foaf) member</a></li>
+    </ul>
+    <div class="entity property" id="creator1">
+        <h3>creator<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#creator1" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#creator</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#creatorOf">frbr:creatorOf</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#ResponsableEntity">frbr:ResponsableEntity</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Work">frbr:Work</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="creatorof">
+        <h3>creator of<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#creatorof" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#creatorOf</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="embodiment">
+        <h3>embodiment<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#embodiment" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#embodiment</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#embodimentOf">frbr:embodimentOf</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Expression">frbr:Expression</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Manifestation">frbr:Manifestation</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="embodimentof">
+        <h3>embodiment of<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#embodimentof" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#embodimentOf</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="exemplar">
+        <h3>exemplar<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#exemplar" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#exemplar</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#exemplarOf">frbr:exemplarOf</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Manifestation">frbr:Manifestation</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Item">frbr:Item</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="exemplarof">
+        <h3>exemplar of<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#exemplarof" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#exemplarOf</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="owner">
+        <h3>owner<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#owner" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#owner</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#ownerOf">frbr:ownerOf</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Item">frbr:Item</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#ResponsableEntity">frbr:ResponsableEntity</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="ownerof">
+        <h3>owner of<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#ownerof" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#ownerOf</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="producer">
+        <h3>producer<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#producer" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#producer</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#producerOf">frbr:producerOf</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#ResponsableEntity">frbr:ResponsableEntity</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Manifestation">frbr:Manifestation</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="producerof">
+        <h3>producer of<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#producerof" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#producerOf</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="realization">
+        <h3>realization<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#realization" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#realization</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#realizationOf">frbr:realizationOf</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Work">frbr:Work</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Expression">frbr:Expression</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="realizationof">
+        <h3>realization of<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#realizationof" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#realizationOf</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="realizer">
+        <h3>realizer<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#realizer" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#realizer</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#realizerOf">frbr:realizerOf</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#ResponsableEntity">frbr:ResponsableEntity</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#Expression">frbr:Expression</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="realizerof">
+        <h3>realizer of<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#realizerof" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/frbr/core#realizerOf</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasitem">
+        <h3>has item<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasitem" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_item</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>has item - The link to every item of the Bag</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_member">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_member</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#item_of">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#item_of</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="hasmember">
+        <h3>has member<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#hasmember" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_member</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A relation between collections and entities, e.g. 'my collection of saxophones includes an old Adolphe Sax original alto' (i.e. my collection has member an Adolphe Sax alto).</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#is_member_of">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#is_member_of</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="ismemberof">
+        <h3>is member of<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#ismemberof" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.ontologydesignpatterns.org/cp/owl/bag.owl#is_member_of</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="itemcontent">
+        <h3>item content<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#itemcontent" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.ontologydesignpatterns.org/cp/owl/bag.owl#item_content</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>itemContent - The link to the actual resource to which the item refers.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="itemof">
+        <h3>item of<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#itemof" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.ontologydesignpatterns.org/cp/owl/bag.owl#item_of</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>item of - The link from an item to the Bag where it is contained</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#is_member_of">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#is_member_of</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="carrelloDi">
+        <h3>carrelloDi<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#carrelloDi" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#carrelloDi</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#haCarrello">http://www.semanticweb.org/museum#haCarrello</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Basket">http://www.semanticweb.org/museum#Basket</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#User">http://www.semanticweb.org/museum#User</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="contenutoIn">
+        <h3>contenutoIn<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#contenutoIn" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#contenutoIn</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#contiene">http://www.semanticweb.org/museum#contiene</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="contiene">
+        <h3>contiene<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#contiene" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#contiene</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Basket">http://www.semanticweb.org/museum#Basket</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#NFT">http://www.semanticweb.org/museum#NFT</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="creataDa">
+        <h3>creataDa<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#creataDa" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#creataDa</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#creatorOf">frbr:creatorOf</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#haCreato">http://www.semanticweb.org/museum#haCreato</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="detiene">
+        <h3>detiene<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#detiene" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#detiene</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#èDetenutoDa">http://www.semanticweb.org/museum#èDetenutoDa</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#User">http://www.semanticweb.org/museum#User</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ArtExpression">http://www.semanticweb.org/museum#ArtExpression</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="dipintoDa">
+        <h3>dipintoDa<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#dipintoDa" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#dipintoDa</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#creataDa">http://www.semanticweb.org/museum#creataDa</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#haDipinto">http://www.semanticweb.org/museum#haDipinto</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="disegnatoDa">
+        <h3>disegnatoDa<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#disegnatoDa" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#disegnatoDa</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#creataDa">http://www.semanticweb.org/museum#creataDa</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#haDisegnato">http://www.semanticweb.org/museum#haDisegnato</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="espone">
+        <h3>espone<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#espone" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#espone</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#espostaIn">http://www.semanticweb.org/museum#espostaIn</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Gallery">http://www.semanticweb.org/museum#Gallery</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="espostaIn">
+        <h3>espostaIn<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#espostaIn" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#espostaIn</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="haCarrello">
+        <h3>haCarrello<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#haCarrello" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#haCarrello</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="haCreato">
+        <h3>haCreato<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#haCreato" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#haCreato</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#creator">frbr:creator</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Artist">http://www.semanticweb.org/museum#Artist</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="haDipinto">
+        <h3>haDipinto<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#haDipinto" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#haDipinto</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#haCreato">http://www.semanticweb.org/museum#haCreato</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Painter">http://www.semanticweb.org/museum#Painter</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Paint">http://www.semanticweb.org/museum#Paint</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="haDisegnato">
+        <h3>haDisegnato<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#haDisegnato" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#haDisegnato</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#haCreato">http://www.semanticweb.org/museum#haCreato</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#GraphicDesigner">http://www.semanticweb.org/museum#GraphicDesigner</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Image">http://www.semanticweb.org/museum#Image</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="haPosizioneIn">
+        <h3>haPosizioneIn<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#haPosizioneIn" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#haPosizioneIn</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#posizionatoIn">http://www.semanticweb.org/museum#posizionatoIn</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Wallet">http://www.semanticweb.org/museum#Wallet</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#NFT">http://www.semanticweb.org/museum#NFT</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="haToken">
+        <h3>haToken<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#haToken" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#haToken</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#embodiment">frbr:embodiment</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#tokenDi">http://www.semanticweb.org/museum#tokenDi</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ArtExpression">http://www.semanticweb.org/museum#ArtExpression</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#NFT">http://www.semanticweb.org/museum#NFT</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="haWallet">
+        <h3>haWallet<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#haWallet" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#haWallet</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#walletDi">http://www.semanticweb.org/museum#walletDi</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#User">http://www.semanticweb.org/museum#User</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Wallet">http://www.semanticweb.org/museum#Wallet</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="operaTokenizzata">
+        <h3>operaTokenizzata<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#operaTokenizzata" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#operaTokenizzata</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#realization">frbr:realization</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#tokenDiOpera">http://www.semanticweb.org/museum#tokenDiOpera</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="posizionatoIn">
+        <h3>posizionatoIn<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#posizionatoIn" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#posizionatoIn</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="possiede">
+        <h3>possiede<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#possiede" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#possiede</code></td>
+            </tr>
+            <tr>
+                <th>Inverse properties</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#èPossedutoDa">http://www.semanticweb.org/museum#èPossedutoDa</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#User">http://www.semanticweb.org/museum#User</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#NFT">http://www.semanticweb.org/museum#NFT</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="tokendi">
+        <h3>token di<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#tokendi" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#tokenDi</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#embodimentOf">frbr:embodimentOf</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="tokendiopera">
+        <h3>token di opera<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#tokendiopera" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#tokenDiOpera</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://purl.org/vocab/frbr/core#realizationOf">frbr:realizationOf</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ArtExpression">http://www.semanticweb.org/museum#ArtExpression</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="walletDi">
+        <h3>walletDi<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#walletDi" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#walletDi</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="DetenutoDa">
+        <h3>èDetenutoDa<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#DetenutoDa" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#èDetenutoDa</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="PossedutoDa">
+        <h3>èPossedutoDa<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#PossedutoDa" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#èPossedutoDa</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="(foaf)member">
+        <h3>(foaf) member<sup title="object property" class="sup-op">op</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#(foaf)member" title="fragment link to here">#</a>&nbsp;<a href="#objectproperties" title="Object Properties Index">OPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/member</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Group">foaf:Group</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="functionalproperties">
+    <h2>Functional Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#contoCrypto">contoCrypto</a></li>
+        <li><a href="#idBlockchain">id Blockchain</a></li>
+        <li><a href="#Artworktitle">Artwork title</a></li>
+        <li><a href="#valoreNFT">valore NFT</a></li>
+    </ul>
+    <div class="entity property" id="contoCrypto">
+        <h3>contoCrypto<sup title="functional property" class="sup-fp">fp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#contoCrypto" title="fragment link to here">#</a>&nbsp;<a href="#functionalproperties" title="Functional Properties Index">FPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#contoCrypto</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Wallet">http://www.semanticweb.org/museum#Wallet</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">xsd:nonNegativeInteger</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="idBlockchain">
+        <h3>id Blockchain<sup title="functional property" class="sup-fp">fp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#idBlockchain" title="fragment link to here">#</a>&nbsp;<a href="#functionalproperties" title="Functional Properties Index">FPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#idBlockchain</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#NFT">http://www.semanticweb.org/museum#NFT</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="Artworktitle">
+        <h3>Artwork title<sup title="functional property" class="sup-fp">fp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#Artworktitle" title="fragment link to here">#</a>&nbsp;<a href="#functionalproperties" title="Functional Properties Index">FPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#titoloOpera</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Titolo dell'opera d'arte</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="valoreNFT">
+        <h3>valore NFT<sup title="functional property" class="sup-fp">fp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#valoreNFT" title="fragment link to here">#</a>&nbsp;<a href="#functionalproperties" title="Functional Properties Index">FPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#valoreNFT</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#NFT">http://www.semanticweb.org/museum#NFT</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">xsd:nonNegativeInteger</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="datatypeproperties">
+    <h2>Datatype Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#size">size</a></li>
+        <li><a href="#LastNameartist">Last Name artist</a></li>
+        <li><a href="#FirstNameartist">First Name artist</a></li>
+        <li><a href="#nomegalleria">nome galleria</a></li>
+        <li><a href="#nomeNFT">nomeNFT</a></li>
+        <li><a href="#addressDIgitalGallery">address DIgital Gallery</a></li>
+        <li><a href="#addressPhysicalGallery">address Physical Gallery</a></li>
+        <li><a href="#age">age</a></li>
+        <li><a href="#birthday">birthday</a></li>
+        <li><a href="#firstName">firstName</a></li>
+        <li><a href="#gender">gender</a></li>
+        <li><a href="#lastName">lastName</a></li>
+        <li><a href="#mbox">mbox</a></li>
+        <li><a href="#(foaf)nickname">(foaf) nickname</a></li>
+    </ul>
+    <div class="entity property" id="size">
+        <h3>size<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#size" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.ontologydesignpatterns.org/cp/owl/bag.owl#size</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>size - The number of items belonging to a collection</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">xsd:nonNegativeInteger</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="LastNameartist">
+        <h3>Last Name artist<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#LastNameartist" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#cognomeArtista</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Artist">http://www.semanticweb.org/museum#Artist</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="FirstNameartist">
+        <h3>First Name artist<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#FirstNameartist" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#nomeArtista</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Artist">http://www.semanticweb.org/museum#Artist</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="nomegalleria">
+        <h3>nome galleria<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#nomegalleria" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#nomeGalleria</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#Gallery">http://www.semanticweb.org/museum#Gallery</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="nomeNFT">
+        <h3>nomeNFT<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#nomeNFT" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#nomeNFT</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#NFT">http://www.semanticweb.org/museum#NFT</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="addressDIgitalGallery">
+        <h3>address DIgital Gallery<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#addressDIgitalGallery" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#ubicazioneDIgitale</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#DigitalGallery">http://www.semanticweb.org/museum#DigitalGallery</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="addressPhysicalGallery">
+        <h3>address Physical Gallery<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#addressPhysicalGallery" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.semanticweb.org/museum#ubicazioneFIsica</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://www.semanticweb.org/museum#PhysicalGallery">http://www.semanticweb.org/museum#PhysicalGallery</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="age">
+        <h3>age<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#age" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/age</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">xsd:nonNegativeInteger</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="birthday">
+        <h3>birthday<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#birthday" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/birthday</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="firstName">
+        <h3>firstName<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#firstName" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/firstName</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="gender">
+        <h3>gender<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#gender" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/gender</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="lastName">
+        <h3>lastName<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#lastName" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/lastName</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="mbox">
+        <h3>mbox<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#mbox" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/mbox</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="(foaf)nickname">
+        <h3>(foaf) nickname<sup title="datatype property" class="sup-dp">dp</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#(foaf)nickname" title="fragment link to here">#</a>&nbsp;<a href="#datatypeproperties" title="Datatype Properties Index">DPs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/surname</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="annotationproperties">
+    <h2>Annotation Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#creator">creator</a></li>
+        <li><a href="#date">date</a></li>
+        <li><a href="#description">description</a></li>
+        <li><a href="#title">title</a></li>
+        <li><a href="#preferredNamespacePrefix">preferredNamespacePrefix</a></li>
+        <li><a href="#preferredNamespaceUri">preferredNamespaceUri</a></li>
+        <li><a href="#name">name</a></li>
+    </ul>
+    <div class="entity property" id="creator">
+        <h3>creator<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#creator" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/creator</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="date">
+        <h3>date<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#date" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/date</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="description">
+        <h3>description<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#description" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/description</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="title">
+        <h3>title<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#title" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/dc/elements/1.1/title</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="preferredNamespacePrefix">
+        <h3>preferredNamespacePrefix<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#preferredNamespacePrefix" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/vann#preferredNamespacePrefix</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="preferredNamespaceUri">
+        <h3>preferredNamespaceUri<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#preferredNamespaceUri" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/vocab/vann#preferredNamespaceUri</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="name">
+        <h3>name<sup title="annotation property" class="sup-ap">ap</sup><span style="float:right; margin-right:10px; font-size:smaller;">
+            <a href="#name" title="fragment link to here">#</a>&nbsp;<a href="#annotationproperties" title="Annotation Properties Index">APs</a></span>
+        </h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://xmlns.com/foaf/0.1/name</code></td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+  
+    <section id="namedindividuals">
+        <h2>Named Individuals <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+        <ul class="hlist">
+            <li><a href="#BasketUser1">BasketUser1</a></li>
+            <li><a href="#BasketUser2">BasketUser2</a></li>
+            <li><a href="#Beeple">Beeple</a></li>
+            <li><a href="#Cenacolo">Cenacolo</a></li>
+            <li><a href="#Everydays">Everydays</a></li>
+            <li><a href="#Leonardo_Da_Vinci">Leonardo_Da_Vinci</a></li>
+            <li><a href="#Monna_Lisa">Monna_Lisa</a></li>
+            <li><a href="#MuseoDelCenacoloVInciano">MuseoDelCenacoloVInciano</a></li>
+            <li><a href="#PieceofEarth2">Piece of Earth 2</a></li>
+            <li><a href="#TokenCenacolo1">TokenCenacolo1</a></li>
+            <li><a href="#TokenCenacolo2">TokenCenacolo2</a></li>
+            <li><a href="#TokenEverydays">TokenEverydays</a></li>
+            <li><a href="#TokenMonna">TokenMonna</a></li>
+            <li><a href="#User1">User1</a></li>
+            <li><a href="#User2">User2</a></li>
+            <li><a href="#WalletUser1">WalletUser1</a></li>
+            <li><a href="#WalletUser2">WalletUser2</a></li>
+        </ul>
+            <div class="entity named_individual" id="BasketUser1">
+        <h3>BasketUser1<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#BasketUser1
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection</a><br/>
+                <a href="http://www.semanticweb.org/museum#Basket">http://www.semanticweb.org/museum#Basket</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="BasketUser2">
+        <h3>BasketUser2<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#BasketUser2
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection</a><br/>
+                <a href="http://www.semanticweb.org/museum#Basket">http://www.semanticweb.org/museum#Basket</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="Beeple">
+        <h3>Beeple<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#Beeple
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://purl.org/vocab/frbr/core#Person">frbr:Person</a><br/>
+                <a href="http://www.semanticweb.org/museum#Artist">http://www.semanticweb.org/museum#Artist</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#ResponsableEntity">frbr:ResponsableEntity</a><br/>
+                <a href="http://www.semanticweb.org/museum#GraphicDesigner">http://www.semanticweb.org/museum#GraphicDesigner</a><br/>
+                <a href="http://www.semanticweb.org/museum#MultimediaArtist">http://www.semanticweb.org/museum#MultimediaArtist</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="Cenacolo">
+        <h3>Cenacolo<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#Cenacolo
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><br/>
+                <a href="http://www.semanticweb.org/museum#Paint">http://www.semanticweb.org/museum#Paint</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Expression">frbr:Expression</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Work">frbr:Work</a><br/>
+                <a href="http://www.semanticweb.org/museum#ArtExpression">http://www.semanticweb.org/museum#ArtExpression</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="Everydays">
+        <h3>Everydays<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#Everydays
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Expression">frbr:Expression</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Work">frbr:Work</a><br/>
+                <a href="http://www.semanticweb.org/museum#MultimediaWork">http://www.semanticweb.org/museum#MultimediaWork</a><br/>
+                <a href="http://www.semanticweb.org/museum#Image">http://www.semanticweb.org/museum#Image</a><br/>
+                <a href="http://www.semanticweb.org/museum#ArtExpression">http://www.semanticweb.org/museum#ArtExpression</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="Leonardo_Da_Vinci">
+        <h3>Leonardo_Da_Vinci<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#Leonardo_Da_Vinci
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://purl.org/vocab/frbr/core#ResponsableEntity">frbr:ResponsableEntity</a><br/>
+                <a href="http://www.semanticweb.org/museum#Painter">http://www.semanticweb.org/museum#Painter</a><br/>
+                <a href="http://www.semanticweb.org/museum#Artist">http://www.semanticweb.org/museum#Artist</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Person">frbr:Person</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="Monna_Lisa">
+        <h3>Monna_Lisa<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#Monna_Lisa
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><br/>
+                <a href="http://www.semanticweb.org/museum#Paint">http://www.semanticweb.org/museum#Paint</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Expression">frbr:Expression</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Work">frbr:Work</a><br/>
+                <a href="http://www.semanticweb.org/museum#ArtExpression">http://www.semanticweb.org/museum#ArtExpression</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="MuseoDelCenacoloVInciano">
+        <h3>MuseoDelCenacoloVInciano<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#MuseoDelCenacoloVInciano
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://www.semanticweb.org/museum#PhysicalGallery">http://www.semanticweb.org/museum#PhysicalGallery</a><br/>
+                <a href="http://www.semanticweb.org/museum#Gallery">http://www.semanticweb.org/museum#Gallery</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="PieceofEarth2">
+        <h3>Piece of Earth 2<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#PieceEarth2
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://www.semanticweb.org/museum#Gallery">http://www.semanticweb.org/museum#Gallery</a><br/>
+                <a href="http://www.semanticweb.org/museum#DigitalGallery">http://www.semanticweb.org/museum#DigitalGallery</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="TokenCenacolo1">
+        <h3>TokenCenacolo1<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#TokenCenacolo1
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Manifestation">frbr:Manifestation</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Expression">frbr:Expression</a><br/>
+                <a href="http://www.semanticweb.org/museum#NFT">http://www.semanticweb.org/museum#NFT</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Work">frbr:Work</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Item">frbr:Item</a><br/>
+                <a href="http://www.semanticweb.org/museum#ERC-1155">http://www.semanticweb.org/museum#ERC-1155</a><br/>
+                <a href="http://www.semanticweb.org/museum#ERC-721">http://www.semanticweb.org/museum#ERC-721</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="TokenCenacolo2">
+        <h3>TokenCenacolo2<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#TokenCenacolo2
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Manifestation">frbr:Manifestation</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Expression">frbr:Expression</a><br/>
+                <a href="http://www.semanticweb.org/museum#NFT">http://www.semanticweb.org/museum#NFT</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Work">frbr:Work</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Item">frbr:Item</a><br/>
+                <a href="http://www.semanticweb.org/museum#ERC-1155">http://www.semanticweb.org/museum#ERC-1155</a><br/>
+                <a href="http://www.semanticweb.org/museum#ERC-721">http://www.semanticweb.org/museum#ERC-721</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="TokenEverydays">
+        <h3>TokenEverydays<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#TokenEverydays
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Manifestation">frbr:Manifestation</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Expression">frbr:Expression</a><br/>
+                <a href="http://www.semanticweb.org/museum#NFT">http://www.semanticweb.org/museum#NFT</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Work">frbr:Work</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Item">frbr:Item</a><br/>
+                <a href="http://www.semanticweb.org/museum#ERC-721">http://www.semanticweb.org/museum#ERC-721</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="TokenMonna">
+        <h3>TokenMonna<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#TokenMonna
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://www.semanticweb.org/museum#ArtWork">http://www.semanticweb.org/museum#ArtWork</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Manifestation">frbr:Manifestation</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Expression">frbr:Expression</a><br/>
+                <a href="http://www.semanticweb.org/museum#NFT">http://www.semanticweb.org/museum#NFT</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Work">frbr:Work</a><br/>
+                <a href="http://purl.org/vocab/frbr/core#Item">frbr:Item</a><br/>
+                <a href="http://www.semanticweb.org/museum#ERC-721">http://www.semanticweb.org/museum#ERC-721</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="User1">
+        <h3>User1<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#User1
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://www.semanticweb.org/museum#User">http://www.semanticweb.org/museum#User</a><br/>
+                <a href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a><br/>
+                <a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="User2">
+        <h3>User2<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#User2
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://www.semanticweb.org/museum#User">http://www.semanticweb.org/museum#User</a><br/>
+                <a href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a><br/>
+                <a href="http://xmlns.com/foaf/0.1/Person">foaf:Person</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="WalletUser1">
+        <h3>WalletUser1<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#WalletUser1
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection</a><br/>
+                <a href="http://www.semanticweb.org/museum#Wallet">http://www.semanticweb.org/museum#Wallet</a><br/>
+            </dd>
+        </table>
+    </div>
+            <div class="entity named_individual" id="WalletUser2">
+        <h3>WalletUser2<sup title="named individual" class="sup-ni">ni</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td>
+                  <code>
+                      http://www.semanticweb.org/museum#WalletUser2
+                  
+                  </code>
+                </td>
+            </tr>
+            <dt>Class(es)</dt>
+            <dd>
+                <a href="http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection">http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection</a><br/>
+                <a href="http://www.semanticweb.org/museum#Wallet">http://www.semanticweb.org/museum#Wallet</a><br/>
+            </dd>
+        </table>
+    </div>
+    </section>
+
+  <section id="namespaces">
+    <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <dl>
+        <dt>default (:)</dt>
+        <dd><code>http://www.semanticweb.com/museum</code></dd>
+        <dt>dc</dt>
+        <dd><code>http://purl.org/dc/elements/1.1/</code></dd>
+        <dt>dct</dt>
+        <dd><code>http://purl.org/dc/terms/</code></dd>
+        <dt>foaf</dt>
+        <dd><code>http://xmlns.com/foaf/0.1/</code></dd>
+        <dt>frbr</dt>
+        <dd><code>http://purl.org/vocab/frbr/core#</code></dd>
+        <dt>owl</dt>
+        <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+        <dt>prov</dt>
+        <dd><code>http://www.w3.org/ns/prov#</code></dd>
+        <dt>rdf</dt>
+        <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+        <dt>rdfs</dt>
+        <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+        <dt>sdo</dt>
+        <dd><code>https://schema.org/</code></dd>
+        <dt>skos</dt>
+        <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+        <dt>xsd</dt>
+        <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+    </dl>
+</section>
+  <section id="legend">
+      <h2>Legend</h2>
+      <table class="entity">
+          <tr><td><sup class="sup-c" title="Classes">c</sup></td><td>Classes</td></tr>
+          <tr><td><sup class="sup-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
+          <tr><td><sup class="sup-fp" title="Functional Properties">fp</sup></td><td>Functional Properties</td></tr>
+          <tr><td><sup class="sup-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
+          <tr><td><sup class="sup-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
+          <tr><td><sup class="sup-p" title="Properties">p</sup></td><td>Properties</td></tr>
+          <tr><td><sup class="sup-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
+      </table>
+  </section>
+</body>
+</html>

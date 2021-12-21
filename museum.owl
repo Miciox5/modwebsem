@@ -1,0 +1,1294 @@
+@prefix : <http://www.semanticweb.com/museum/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.com/museum/> .
+
+<http://www.semanticweb.com/museum/> rdf:type owl:Ontology ;
+                                      <http://purl.org/dc/elements/1.1/creator> "Matteo Miceli" ;
+                                      <http://purl.org/dc/elements/1.1/date> "2021-07-23" ;
+                                      <http://purl.org/dc/elements/1.1/description> "L'ontologia museum rappresenta la la base di conoscenza di un e-commerce ove è acquisto di NFT legati ad opere d'arte. Oltre ad avere uno stretto legame con la risorsa FRBR (per poter sfruttare una descrizione formale di opere d'arte), incorpora parte del vocabolario FOAF per la descrizione di un utente nell'e-commerce." ;
+                                      <http://purl.org/dc/elements/1.1/title> "Museum - La casa degli NFT" ;
+                                      <http://purl.org/vocab/vann#preferredNamespacePrefix> "http://www.museum.com/museum" ;
+                                      <http://purl.org/vocab/vann#preferredNamespaceUri> "museum" ;
+                                      rdfs:label "museum" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+<http://purl.org/dc/elements/1.1/date> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann#preferredNamespacePrefix
+<http://purl.org/vocab/vann#preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann#preferredNamespaceUri
+<http://purl.org/vocab/vann#preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  http://xmlns.com/foaf/0.1/name
+<http://xmlns.com/foaf/0.1/name> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/vocab/frbr/core#creator
+<http://purl.org/vocab/frbr/core#creator> rdf:type owl:ObjectProperty ;
+                                          owl:inverseOf <http://purl.org/vocab/frbr/core#creatorOf> ;
+                                          rdfs:domain <http://purl.org/vocab/frbr/core#ResponsableEntity> ;
+                                          rdfs:range <http://purl.org/vocab/frbr/core#Work> ;
+                                          rdfs:comment "Rappresenta il creatore responsabile della creazione di un'opera (work)"@it ;
+                                          rdfs:label "creator"@en .
+
+
+###  http://purl.org/vocab/frbr/core#creatorOf
+<http://purl.org/vocab/frbr/core#creatorOf> rdf:type owl:ObjectProperty ;
+                                            rdfs:label "creator of"@en .
+
+
+###  http://purl.org/vocab/frbr/core#embodiment
+<http://purl.org/vocab/frbr/core#embodiment> rdf:type owl:ObjectProperty ;
+                                             owl:inverseOf <http://purl.org/vocab/frbr/core#embodimentOf> ;
+                                             rdfs:domain <http://purl.org/vocab/frbr/core#Expression> ;
+                                             rdfs:range <http://purl.org/vocab/frbr/core#Manifestation> ;
+                                             rdfs:label "embodiment"@en .
+
+
+###  http://purl.org/vocab/frbr/core#embodimentOf
+<http://purl.org/vocab/frbr/core#embodimentOf> rdf:type owl:ObjectProperty ;
+                                               rdfs:label "embodiment of"@en .
+
+
+###  http://purl.org/vocab/frbr/core#exemplar
+<http://purl.org/vocab/frbr/core#exemplar> rdf:type owl:ObjectProperty ;
+                                           owl:inverseOf <http://purl.org/vocab/frbr/core#exemplarOf> ;
+                                           rdfs:domain <http://purl.org/vocab/frbr/core#Manifestation> ;
+                                           rdfs:range <http://purl.org/vocab/frbr/core#Item> ;
+                                           rdfs:label "exemplar"@en .
+
+
+###  http://purl.org/vocab/frbr/core#exemplarOf
+<http://purl.org/vocab/frbr/core#exemplarOf> rdf:type owl:ObjectProperty ;
+                                             rdfs:label "exemplar of"@en .
+
+
+###  http://purl.org/vocab/frbr/core#owner
+<http://purl.org/vocab/frbr/core#owner> rdf:type owl:ObjectProperty ;
+                                        owl:inverseOf <http://purl.org/vocab/frbr/core#ownerOf> ;
+                                        rdfs:domain <http://purl.org/vocab/frbr/core#Item> ;
+                                        rdfs:range <http://purl.org/vocab/frbr/core#ResponsableEntity> ;
+                                        rdfs:label "owner"@en .
+
+
+###  http://purl.org/vocab/frbr/core#ownerOf
+<http://purl.org/vocab/frbr/core#ownerOf> rdf:type owl:ObjectProperty ;
+                                          rdfs:label "owner of"@en .
+
+
+###  http://purl.org/vocab/frbr/core#producer
+<http://purl.org/vocab/frbr/core#producer> rdf:type owl:ObjectProperty ;
+                                           owl:inverseOf <http://purl.org/vocab/frbr/core#producerOf> ;
+                                           rdfs:domain <http://purl.org/vocab/frbr/core#ResponsableEntity> ;
+                                           rdfs:range <http://purl.org/vocab/frbr/core#Manifestation> ;
+                                           rdfs:label "producer"@en .
+
+
+###  http://purl.org/vocab/frbr/core#producerOf
+<http://purl.org/vocab/frbr/core#producerOf> rdf:type owl:ObjectProperty ;
+                                             rdfs:label "producer of"@en .
+
+
+###  http://purl.org/vocab/frbr/core#realization
+<http://purl.org/vocab/frbr/core#realization> rdf:type owl:ObjectProperty ;
+                                              owl:inverseOf <http://purl.org/vocab/frbr/core#realizationOf> ;
+                                              rdfs:domain <http://purl.org/vocab/frbr/core#Work> ;
+                                              rdfs:range <http://purl.org/vocab/frbr/core#Expression> ;
+                                              rdfs:label "realization"@en .
+
+
+###  http://purl.org/vocab/frbr/core#realizationOf
+<http://purl.org/vocab/frbr/core#realizationOf> rdf:type owl:ObjectProperty ;
+                                                rdfs:label "realization of"@en .
+
+
+###  http://purl.org/vocab/frbr/core#realizer
+<http://purl.org/vocab/frbr/core#realizer> rdf:type owl:ObjectProperty ;
+                                           owl:inverseOf <http://purl.org/vocab/frbr/core#realizerOf> ;
+                                           rdfs:domain <http://purl.org/vocab/frbr/core#ResponsableEntity> ;
+                                           rdfs:range <http://purl.org/vocab/frbr/core#Expression> ;
+                                           rdfs:label "realizer"@en .
+
+
+###  http://purl.org/vocab/frbr/core#realizerOf
+<http://purl.org/vocab/frbr/core#realizerOf> rdf:type owl:ObjectProperty ;
+                                             rdfs:label "realizer of"@en .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_item
+<http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_item> rdf:type owl:ObjectProperty ;
+                                                                rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_member> ,
+                                                                                   [ owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#is_member_of>
+                                                                                   ] ;
+                                                                owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#item_of> ;
+                                                                rdf:type owl:FunctionalProperty ;
+                                                                rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag> ;
+                                                                rdfs:range <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ;
+                                                                rdfs:comment "has item - The link to every item of the Bag"@en ;
+                                                                rdfs:label "has item"@en .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_member
+<http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_member> rdf:type owl:ObjectProperty ;
+                                                                  owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#is_member_of> ;
+                                                                  rdf:type owl:FunctionalProperty ;
+                                                                  rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection> ;
+                                                                  rdfs:range <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection> ;
+                                                                  rdfs:comment "A relation between collections and entities, e.g. 'my collection of saxophones includes an old Adolphe Sax original alto' (i.e. my collection has member an Adolphe Sax alto)."@en ;
+                                                                  rdfs:label "has member"@en .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#is_member_of
+<http://www.ontologydesignpatterns.org/cp/owl/bag.owl#is_member_of> rdf:type owl:ObjectProperty ;
+                                                                    rdfs:label "is member of"@en .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#item_content
+<http://www.ontologydesignpatterns.org/cp/owl/bag.owl#item_content> rdf:type owl:ObjectProperty ;
+                                                                    rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> ;
+                                                                    rdfs:range [ rdf:type owl:Class ;
+                                                                                 owl:complementOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item>
+                                                                               ] ;
+                                                                    rdfs:comment "itemContent - The link to the actual resource to which the item refers."@en ;
+                                                                    rdfs:label "item content"@en .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#item_of
+<http://www.ontologydesignpatterns.org/cp/owl/bag.owl#item_of> rdf:type owl:ObjectProperty ;
+                                                               rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#is_member_of> ,
+                                                                                  [ owl:inverseOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#has_member>
+                                                                                  ] ;
+                                                               rdfs:comment "item of - The link from an item to the Bag where it is contained"@en ;
+                                                               rdfs:label "item of"@en .
+
+
+###  http://www.semanticweb.org/museum#carrelloDi
+<http://www.semanticweb.org/museum#carrelloDi> rdf:type owl:ObjectProperty ;
+                                               owl:inverseOf <http://www.semanticweb.org/museum#haCarrello> ;
+                                               rdf:type owl:FunctionalProperty ;
+                                               rdfs:domain <http://www.semanticweb.org/museum#Basket> ;
+                                               rdfs:range <http://www.semanticweb.org/museum#User> ;
+                                               rdfs:comment "La proprietà carrelloDi rappresenta il carrello appartenente all'utente."@it ;
+                                               rdfs:label "carrello di"@it .
+
+
+###  http://www.semanticweb.org/museum#contenutoIn
+<http://www.semanticweb.org/museum#contenutoIn> rdf:type owl:ObjectProperty ;
+                                                owl:inverseOf <http://www.semanticweb.org/museum#contiene> ;
+                                                rdfs:comment "La proprietà contenutoIn rappresenta il token presente nel carrello ma non ancora acquistato dall'utente."@it ;
+                                                rdfs:label "contenuto in"@it .
+
+
+###  http://www.semanticweb.org/museum#contiene
+<http://www.semanticweb.org/museum#contiene> rdf:type owl:ObjectProperty ;
+                                             rdfs:domain <http://www.semanticweb.org/museum#Basket> ;
+                                             rdfs:range <http://www.semanticweb.org/museum#NFT> ;
+                                             owl:propertyChainAxiom ( <http://www.semanticweb.org/museum#carrelloDi>
+                                                                      <http://www.semanticweb.org/museum#haWallet>
+                                                                      <http://www.semanticweb.org/museum#haPosizioneIn>
+                                                                    ) ;
+                                             rdfs:comment "La proprietà contiene rappresenta il token presente nel carrello ma non ancora acquistato dall'utente."@it ;
+                                             rdfs:label "contiene"@it .
+
+
+###  http://www.semanticweb.org/museum#creataDa
+<http://www.semanticweb.org/museum#creataDa> rdf:type owl:ObjectProperty ;
+                                             rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#creatorOf> ,
+                                                                [ owl:inverseOf <http://purl.org/vocab/frbr/core#creator>
+                                                                ] ;
+                                             owl:inverseOf <http://www.semanticweb.org/museum#haCreato> ;
+                                             rdf:type owl:FunctionalProperty ;
+                                             rdfs:label "creata da"@it .
+
+
+###  http://www.semanticweb.org/museum#detiene
+<http://www.semanticweb.org/museum#detiene> rdf:type owl:ObjectProperty ;
+                                            owl:inverseOf <http://www.semanticweb.org/museum#èDetenutoDa> ;
+                                            rdfs:domain <http://www.semanticweb.org/museum#User> ;
+                                            rdfs:range <http://www.semanticweb.org/museum#ArtExpression> ;
+                                            rdfs:comment "Rappresenta la detenzione di un'opera tokenizzata da parte dell'utente."@it ;
+                                            rdfs:label "detiene"@it .
+
+
+###  http://www.semanticweb.org/museum#dipintoDa
+<http://www.semanticweb.org/museum#dipintoDa> rdf:type owl:ObjectProperty ;
+                                              rdfs:subPropertyOf <http://www.semanticweb.org/museum#creataDa> ,
+                                                                 [ owl:inverseOf <http://www.semanticweb.org/museum#haCreato>
+                                                                 ] ;
+                                              owl:inverseOf <http://www.semanticweb.org/museum#haDipinto> ;
+                                              rdf:type owl:FunctionalProperty ;
+                                              rdfs:comment "Rappresenta una specifica tipologia di creazione. In questo caso il Pittore ha creato un dipinto."@it ;
+                                              rdfs:label "dipinto da"@it .
+
+
+###  http://www.semanticweb.org/museum#disegnatoDa
+<http://www.semanticweb.org/museum#disegnatoDa> rdf:type owl:ObjectProperty ;
+                                                rdfs:subPropertyOf <http://www.semanticweb.org/museum#creataDa> ,
+                                                                   [ owl:inverseOf <http://www.semanticweb.org/museum#haCreato>
+                                                                   ] ;
+                                                owl:inverseOf <http://www.semanticweb.org/museum#haDisegnato> ;
+                                                rdf:type owl:FunctionalProperty ;
+                                                rdfs:comment "Rappresenta una specifica tipologia di creazione. In questo caso il Disegnatore Grafico ha creato un'Immagine digitale."@it ;
+                                                rdfs:label "disegnato da"@it .
+
+
+###  http://www.semanticweb.org/museum#espone
+<http://www.semanticweb.org/museum#espone> rdf:type owl:ObjectProperty ;
+                                           owl:inverseOf <http://www.semanticweb.org/museum#espostaIn> ;
+                                           rdfs:domain <http://www.semanticweb.org/museum#Gallery> ;
+                                           rdfs:range <http://www.semanticweb.org/museum#ArtWork> ;
+                                           rdfs:comment "Rappresenta il luogo in cui viene esposta un'opera."@it ;
+                                           rdfs:label "espone"@it .
+
+
+###  http://www.semanticweb.org/museum#espostaIn
+<http://www.semanticweb.org/museum#espostaIn> rdf:type owl:ObjectProperty ;
+                                              rdfs:comment "Rappresenta dove viene esposta un'opera artistica."@it ;
+                                              rdfs:label "esposta in"@it .
+
+
+###  http://www.semanticweb.org/museum#haCarrello
+<http://www.semanticweb.org/museum#haCarrello> rdf:type owl:ObjectProperty ,
+                                                        owl:FunctionalProperty ;
+                                               rdfs:comment "La proprietà haCarrello rappresenta il carrello appartenente all'utente."@it ;
+                                               rdfs:label "ha carrello"@it .
+
+
+###  http://www.semanticweb.org/museum#haCreato
+<http://www.semanticweb.org/museum#haCreato> rdf:type owl:ObjectProperty ;
+                                             rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#creator> ,
+                                                                [ owl:inverseOf <http://purl.org/vocab/frbr/core#creatorOf>
+                                                                ] ;
+                                             rdfs:domain <http://www.semanticweb.org/museum#Artist> ;
+                                             rdfs:range <http://www.semanticweb.org/museum#ArtWork> ;
+                                             rdfs:comment "Rappresenta il legame di creatore di un'artista e la sua opera d'arte"@it ;
+                                             rdfs:label "ha creato"@it .
+
+
+###  http://www.semanticweb.org/museum#haDipinto
+<http://www.semanticweb.org/museum#haDipinto> rdf:type owl:ObjectProperty ;
+                                              rdfs:subPropertyOf <http://www.semanticweb.org/museum#haCreato> ,
+                                                                 [ owl:inverseOf <http://www.semanticweb.org/museum#creataDa>
+                                                                 ] ;
+                                              rdfs:domain <http://www.semanticweb.org/museum#Painter> ;
+                                              rdfs:range <http://www.semanticweb.org/museum#Paint> ;
+                                              rdfs:comment "Rappresenta una specifica tipologia di creazione. In questo caso il Pittore ha creato un dipinto."@it ;
+                                              rdfs:label "ha dipinto"@it .
+
+
+###  http://www.semanticweb.org/museum#haDisegnato
+<http://www.semanticweb.org/museum#haDisegnato> rdf:type owl:ObjectProperty ;
+                                                rdfs:subPropertyOf <http://www.semanticweb.org/museum#haCreato> ,
+                                                                   [ owl:inverseOf <http://www.semanticweb.org/museum#creataDa>
+                                                                   ] ;
+                                                rdfs:domain <http://www.semanticweb.org/museum#GraphicDesigner> ;
+                                                rdfs:range <http://www.semanticweb.org/museum#Image> ;
+                                                rdfs:comment "Rappresenta una specifica tipologia di creazione. In questo caso il Disegnatore Grafico ha creato un'Immagine digitale."@it ;
+                                                rdfs:label "ha disegnato"@it .
+
+
+###  http://www.semanticweb.org/museum#haPosizioneIn
+<http://www.semanticweb.org/museum#haPosizioneIn> rdf:type owl:ObjectProperty ;
+                                                  owl:inverseOf <http://www.semanticweb.org/museum#posizionatoIn> ;
+                                                  rdf:type owl:FunctionalProperty ;
+                                                  rdfs:domain <http://www.semanticweb.org/museum#Wallet> ;
+                                                  rdfs:range <http://www.semanticweb.org/museum#NFT> ;
+                                                  rdfs:comment "Rappresenta il posizionamento di un token qualsiasi nel portafoglio di un'utente."@it ;
+                                                  rdfs:label "ha posizione in"@it .
+
+
+###  http://www.semanticweb.org/museum#haToken
+<http://www.semanticweb.org/museum#haToken> rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#embodiment> ,
+                                                               [ owl:inverseOf <http://purl.org/vocab/frbr/core#embodimentOf>
+                                                               ] ;
+                                            owl:inverseOf <http://www.semanticweb.org/museum#tokenDi> ;
+                                            rdfs:domain <http://www.semanticweb.org/museum#ArtExpression> ;
+                                            rdfs:range <http://www.semanticweb.org/museum#NFT> ;
+                                            rdfs:comment "Rappresenta la tokenizzazione astratta di un'opera artistica."@it ;
+                                            rdfs:label "ha token"@it .
+
+
+###  http://www.semanticweb.org/museum#haWallet
+<http://www.semanticweb.org/museum#haWallet> rdf:type owl:ObjectProperty ;
+                                             owl:inverseOf <http://www.semanticweb.org/museum#walletDi> ;
+                                             rdf:type owl:FunctionalProperty ;
+                                             rdfs:domain <http://www.semanticweb.org/museum#User> ;
+                                             rdfs:range <http://www.semanticweb.org/museum#Wallet> ;
+                                             rdfs:comment "Rappresenta l'appartenenza del portafoglio di un utente."@it ;
+                                             rdfs:label "ha wallet"@it .
+
+
+###  http://www.semanticweb.org/museum#operaTokenizzata
+<http://www.semanticweb.org/museum#operaTokenizzata> rdf:type owl:ObjectProperty ;
+                                                     rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#realization> ,
+                                                                        [ owl:inverseOf <http://purl.org/vocab/frbr/core#realizationOf>
+                                                                        ] ;
+                                                     owl:inverseOf <http://www.semanticweb.org/museum#tokenDiOpera> ;
+                                                     rdfs:comment "Rappresenta il legame astratto tra l'opera artistica/intellettuale e la sua tokenizzazione."@it ;
+                                                     rdfs:label "opera tokenizzata"@it .
+
+
+###  http://www.semanticweb.org/museum#posizionatoIn
+<http://www.semanticweb.org/museum#posizionatoIn> rdf:type owl:ObjectProperty ;
+                                                  rdfs:comment "Rappresenta il posizionamento di un token qualsiasi nel portafoglio di un'utente."@it ;
+                                                  rdfs:label "posizionato in"@it .
+
+
+###  http://www.semanticweb.org/museum#possiede
+<http://www.semanticweb.org/museum#possiede> rdf:type owl:ObjectProperty ;
+                                             owl:inverseOf <http://www.semanticweb.org/museum#èPossedutoDa> ;
+                                             rdfs:domain <http://www.semanticweb.org/museum#User> ;
+                                             rdfs:range <http://www.semanticweb.org/museum#NFT> ;
+                                             owl:propertyChainAxiom ( <http://www.semanticweb.org/museum#haWallet>
+                                                                      <http://www.semanticweb.org/museum#haPosizioneIn>
+                                                                    ) ;
+                                             rdfs:comment "Rappresenta un token posseduto dall'utente."@it ;
+                                             rdfs:label "possiede"@it .
+
+
+###  http://www.semanticweb.org/museum#tokenDi
+<http://www.semanticweb.org/museum#tokenDi> rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#embodimentOf> ,
+                                                               [ owl:inverseOf <http://purl.org/vocab/frbr/core#embodiment>
+                                                               ] ;
+                                            rdfs:comment "Rappresenta la tokenizzazione astratta di un'opera artistica."@it ;
+                                            rdfs:label "token di"@en .
+
+
+###  http://www.semanticweb.org/museum#tokenDiOpera
+<http://www.semanticweb.org/museum#tokenDiOpera> rdf:type owl:ObjectProperty ;
+                                                 rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#realizationOf> ,
+                                                                    [ owl:inverseOf <http://purl.org/vocab/frbr/core#realization>
+                                                                    ] ;
+                                                 rdfs:domain <http://www.semanticweb.org/museum#ArtWork> ;
+                                                 rdfs:range <http://www.semanticweb.org/museum#ArtExpression> ;
+                                                 rdfs:comment "Rappresenta il legame astratto tra l'opera artistica/intellettuale e la sua tokenizzazione."@it ;
+                                                 rdfs:label "token di opera"@en .
+
+
+###  http://www.semanticweb.org/museum#walletDi
+<http://www.semanticweb.org/museum#walletDi> rdf:type owl:ObjectProperty ,
+                                                      owl:FunctionalProperty ;
+                                             rdfs:comment "Rappresenta l'appartenenza del portafoglio di un utente."@it ;
+                                             rdfs:label "portafoglio di"@it .
+
+
+###  http://www.semanticweb.org/museum#èDetenutoDa
+<http://www.semanticweb.org/museum#èDetenutoDa> rdf:type owl:ObjectProperty ,
+                                                         owl:FunctionalProperty ;
+                                                rdfs:comment "Rappresenta chi possiede un'opera tokenizzata"@it ;
+                                                rdfs:label "è detenuto da"@it .
+
+
+###  http://www.semanticweb.org/museum#èPossedutoDa
+<http://www.semanticweb.org/museum#èPossedutoDa> rdf:type owl:ObjectProperty ;
+                                                 rdfs:comment "Rappresenta un token posseduto dall'utente."@it ;
+                                                 rdfs:label "è posseduto da"@it .
+
+
+###  http://xmlns.com/foaf/0.1/member
+<http://xmlns.com/foaf/0.1/member> rdf:type owl:ObjectProperty ,
+                                            owl:FunctionalProperty ;
+                                   rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+                                   rdfs:range <http://xmlns.com/foaf/0.1/Group> ;
+                                   rdfs:label "(foaf) member"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#size
+<http://www.ontologydesignpatterns.org/cp/owl/bag.owl#size> rdf:type owl:DatatypeProperty ;
+                                                            rdfs:domain <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection> ;
+                                                            rdfs:range xsd:nonNegativeInteger ;
+                                                            rdfs:comment "size - The number of items belonging to a collection"@en ;
+                                                            rdfs:label "size"@en .
+
+
+###  http://www.semanticweb.org/museum#cognomeArtista
+<http://www.semanticweb.org/museum#cognomeArtista> rdf:type owl:DatatypeProperty ;
+                                                   rdfs:domain <http://www.semanticweb.org/museum#Artist> ;
+                                                   rdfs:range xsd:string ;
+                                                   rdfs:comment "Cognome dell'artista"@it ;
+                                                   rdfs:label "Last Name artist"@en ,
+                                                              "cognome Artista"@it .
+
+
+###  http://www.semanticweb.org/museum#contoCrypto
+<http://www.semanticweb.org/museum#contoCrypto> rdf:type owl:DatatypeProperty ,
+                                                         owl:FunctionalProperty ;
+                                                rdfs:domain <http://www.semanticweb.org/museum#Wallet> ;
+                                                rdfs:range xsd:nonNegativeInteger ;
+                                                rdfs:comment "Indica il quantitativo di cryptovaluta detenuta dall'utente"@it ;
+                                                rdfs:label "Conto Crypto"@it .
+
+
+###  http://www.semanticweb.org/museum#idBlockchain
+<http://www.semanticweb.org/museum#idBlockchain> rdf:type owl:DatatypeProperty ,
+                                                          owl:FunctionalProperty ;
+                                                 rdfs:domain <http://www.semanticweb.org/museum#NFT> ;
+                                                 rdfs:range xsd:string ;
+                                                 rdfs:comment "Identificativo del NFT sulla blockchain"@it ;
+                                                 rdfs:label "id Blockchain"@en ,
+                                                            "id Blockchain"@it .
+
+
+###  http://www.semanticweb.org/museum#nomeArtista
+<http://www.semanticweb.org/museum#nomeArtista> rdf:type owl:DatatypeProperty ;
+                                                rdfs:domain <http://www.semanticweb.org/museum#Artist> ;
+                                                rdfs:range xsd:string ;
+                                                rdfs:comment "Nome dell'artista."@it ;
+                                                rdfs:label "First Name artist"@en ,
+                                                           "nome Artista"@it .
+
+
+###  http://www.semanticweb.org/museum#nomeGalleria
+<http://www.semanticweb.org/museum#nomeGalleria> rdf:type owl:DatatypeProperty ;
+                                                 rdfs:domain <http://www.semanticweb.org/museum#Gallery> ;
+                                                 rdfs:label "Nome della Galleria" ,
+                                                            "nome galleria" .
+
+
+###  http://www.semanticweb.org/museum#nomeNFT
+<http://www.semanticweb.org/museum#nomeNFT> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <http://www.semanticweb.org/museum#NFT> ;
+                                            rdfs:label "nome nft"@it .
+
+
+###  http://www.semanticweb.org/museum#titoloOpera
+<http://www.semanticweb.org/museum#titoloOpera> rdf:type owl:DatatypeProperty ,
+                                                         owl:FunctionalProperty ;
+                                                rdfs:domain <http://www.semanticweb.org/museum#ArtWork> ;
+                                                rdfs:range xsd:string ;
+                                                rdfs:comment "Titolo dell'opera d'arte"@en ;
+                                                rdfs:label "Artwork title"@en ,
+                                                           "titolo Opera"@it .
+
+
+###  http://www.semanticweb.org/museum#ubicazioneDIgitale
+<http://www.semanticweb.org/museum#ubicazioneDIgitale> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:domain <http://www.semanticweb.org/museum#DigitalGallery> ;
+                                                       rdfs:range xsd:string ;
+                                                       rdfs:comment "Indirizzo virtuale (URL) della galleria in cui è ubicata l'opera d'arte."@it ;
+                                                       rdfs:label "address DIgital Gallery"@en ,
+                                                                  "ubicazione Galleria DIgitale"@it .
+
+
+###  http://www.semanticweb.org/museum#ubicazioneFIsica
+<http://www.semanticweb.org/museum#ubicazioneFIsica> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.semanticweb.org/museum#PhysicalGallery> ;
+                                                     rdfs:range xsd:string ;
+                                                     rdfs:comment "Indirizzo fisico della galleria in cui è ubicata l'opera d'arte."@it ;
+                                                     rdfs:label "address Physical Gallery"@en ,
+                                                                "ubicazione Galleria FIsica"@it .
+
+
+###  http://www.semanticweb.org/museum#valoreNFT
+<http://www.semanticweb.org/museum#valoreNFT> rdf:type owl:DatatypeProperty ,
+                                                       owl:FunctionalProperty ;
+                                              rdfs:domain <http://www.semanticweb.org/museum#NFT> ;
+                                              rdfs:range xsd:nonNegativeInteger ;
+                                              rdfs:label "valore NFT"@en .
+
+
+###  http://xmlns.com/foaf/0.1/age
+<http://xmlns.com/foaf/0.1/age> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
+                                rdfs:range xsd:nonNegativeInteger ;
+                                rdfs:label "(foaf) età"@it .
+
+
+###  http://xmlns.com/foaf/0.1/birthday
+<http://xmlns.com/foaf/0.1/birthday> rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "(foaf) data di nascita"@it .
+
+
+###  http://xmlns.com/foaf/0.1/firstName
+<http://xmlns.com/foaf/0.1/firstName> rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:label "(foaf) nome"@it .
+
+
+###  http://xmlns.com/foaf/0.1/gender
+<http://xmlns.com/foaf/0.1/gender> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:label "(foaf) genere"@it .
+
+
+###  http://xmlns.com/foaf/0.1/lastName
+<http://xmlns.com/foaf/0.1/lastName> rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:label "(foaf) cognome"@it .
+
+
+###  http://xmlns.com/foaf/0.1/mbox
+<http://xmlns.com/foaf/0.1/mbox> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <http://xmlns.com/foaf/0.1/Agent> ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:label "(foaf) email"@it .
+
+
+###  http://xmlns.com/foaf/0.1/surname
+<http://xmlns.com/foaf/0.1/surname> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <http://xmlns.com/foaf/0.1/Person> ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:label "(foaf) nickname"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/vocab/frbr/core#CorporateBody
+<http://purl.org/vocab/frbr/core#CorporateBody> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://purl.org/vocab/frbr/core#ResponsableEntity> ;
+                                                rdfs:comment "Un'organizzazione o un gruppo di individui e/o organizzazioni che agiscono come un'unità."@it ;
+                                                rdfs:label "Corporate Body"@en ,
+                                                           "Ente"@it .
+
+
+###  http://purl.org/vocab/frbr/core#Expression
+<http://purl.org/vocab/frbr/core#Expression> rdf:type owl:Class ;
+                                             rdfs:comment "Una classe Espessione rappresenta la realizzazione intellettuale o artistica di un'opera sotto forma di notazione alfanumerica, musicale o coreografica, suono, immagine, oggetto, movimento, ecc., o qualsiasi combinazione di tali forme."@it ;
+                                             rdfs:label "Espressione"@it ,
+                                                        "Expression"@en .
+
+
+###  http://purl.org/vocab/frbr/core#Item
+<http://purl.org/vocab/frbr/core#Item> rdf:type owl:Class ;
+                                       owl:equivalentClass <http://www.semanticweb.org/museum#NFT> ;
+                                       rdfs:subClassOf <http://purl.org/vocab/frbr/core#Manifestation> ;
+                                       rdfs:comment "Un singolo esemplare di Manifestazione. L'entità definita come elemento è un'entità concreta."@it ;
+                                       rdfs:label "(frbr) Item"@it ,
+                                                  "Item"@en .
+
+
+###  http://purl.org/vocab/frbr/core#Manifestation
+<http://purl.org/vocab/frbr/core#Manifestation> rdf:type owl:Class ;
+                                                rdfs:comment "Una classe Manifestazione rappresenta una realizzazione fisica dell'Espressione dell'opera che viene rappresentata dall'Item"@en ;
+                                                rdfs:label "Manifestation"@en ,
+                                                           "Manifestazione"@it .
+
+
+###  http://purl.org/vocab/frbr/core#Person
+<http://purl.org/vocab/frbr/core#Person> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://purl.org/vocab/frbr/core#ResponsableEntity> ;
+                                         rdfs:comment "Una persona che agice come singolo"@it ;
+                                         rdfs:label "(frbr) Person"@en ,
+                                                    "(frbr) Persona"@it .
+
+
+###  http://purl.org/vocab/frbr/core#ResponsableEntity
+<http://purl.org/vocab/frbr/core#ResponsableEntity> rdf:type owl:Class ;
+                                                    rdfs:comment "Una classe Entità Responsabile rappresenta i responsabili del contenuto intellettuale o artistico, della produzione e diffusione fisica o della custodia di qualsiasi impresa."@it ;
+                                                    rdfs:label "Entità Responsabile"@it ,
+                                                               "Responsable Entity"@en .
+
+
+###  http://purl.org/vocab/frbr/core#Work
+<http://purl.org/vocab/frbr/core#Work> rdf:type owl:Class ;
+                                       rdfs:comment "La classe (Work) Opera rappresenta una specifica creazione intellettuale."@it ;
+                                       rdfs:label "(Work) Opera"@it ,
+                                                  "Work"@en .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag
+<http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Bag> rdf:type owl:Class ;
+                                                           rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection> ;
+                                                           rdfs:comment "Bag - Collection that can have a number of copies of each object"@en ;
+                                                           rdfs:label "(collection) Bag"@en .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection
+<http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection> rdf:type owl:Class ;
+                                                                  rdfs:comment "Any container for entities that share one or more common properties. E.g. \"stone objects\", \"the nurses\", \"the Louvre Aegyptian collection\". A collection is not a logical class: a collection is a first-order entity, while a class is a second-order one."@en ;
+                                                                  rdfs:label "Collection"@en ,
+                                                                             "Collezione"@it .
+
+
+###  http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item
+<http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Item> rdf:type owl:Class ;
+                                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#item_content> ;
+                                                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                              owl:onClass <http://www.semanticweb.org/museum#NFT>
+                                                                            ] ;
+                                                            rdfs:label "(in bag) item"@en .
+
+
+###  http://www.semanticweb.org/museum#ArtExpression
+<http://www.semanticweb.org/museum#ArtExpression> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://purl.org/vocab/frbr/core#Expression> ;
+                                                  rdfs:comment "Una classe Opera rappresenta una tipologia della classe Espressione. VIene rappresentata sottoforma di opera tokenizzata fruibile dall'utente per l'acquisto."@it ;
+                                                  rdfs:label "ArtExpression"@en ,
+                                                             "Opera"@it .
+
+
+###  http://www.semanticweb.org/museum#ArtWork
+<http://www.semanticweb.org/museum#ArtWork> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://purl.org/vocab/frbr/core#Work> ;
+                                            rdfs:comment "Una classe Tipologia Opera corrisponde alla definizione astratta di un'opera d'arte."@en ;
+                                            rdfs:label "ArtWork"@en ,
+                                                       "TIpologia Opera"@it .
+
+
+###  http://www.semanticweb.org/museum#Artist
+<http://www.semanticweb.org/museum#Artist> rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <http://www.semanticweb.org/museum#haCreato> ;
+                                                                 owl:someValuesFrom <http://www.semanticweb.org/museum#ArtExpression>
+                                                               ] ;
+                                           rdfs:subClassOf <http://purl.org/vocab/frbr/core#Person> ;
+                                           rdfs:comment "Una classe Artista rappresenta un* invididu*, responsabile dell'ideazione e della creazione di un'opera artistica."@it ;
+                                           rdfs:label "Artist"@en ,
+                                                      "Artista"@it .
+
+
+###  http://www.semanticweb.org/museum#Basket
+<http://www.semanticweb.org/museum#Basket> rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:oneOf ( <http://www.semanticweb.org/museum#BasketUser1>
+                                                                             <http://www.semanticweb.org/museum#BasketUser2>
+                                                                           )
+                                                               ] ;
+                                           rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection> ;
+                                           rdfs:comment "Una classe Carrello Utente rappresenta una tipologia specifica di Collezione, in cui vengono inseriti degli item (nella fattispecie, gli item inseriti sono NFT che l'utente inserisce nel carrello prima dell'acquisto)."@it ;
+                                           rdfs:label "Basket"@en ,
+                                                      "Carrello Utente"@it .
+
+
+###  http://www.semanticweb.org/museum#Book
+<http://www.semanticweb.org/museum#Book> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://www.semanticweb.org/museum#LiteraryWork> ;
+                                         rdfs:comment "Una classe Libro rappresenta una tipologia specifica della classe Opera Letteraria. In questo caso viene rappresentato una qualsiasi racconto contenuto in un libro."@it ;
+                                         rdfs:label "Book"@en ,
+                                                    "Libro"@it .
+
+
+###  http://www.semanticweb.org/museum#DigitalGallery
+<http://www.semanticweb.org/museum#DigitalGallery> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.semanticweb.org/museum#Gallery> ;
+                                                   rdfs:comment "Una classe Galleria Digitale rappresenta una specifica classe Galleria. In questo caso viene inteso che un'opera d'arte ad essa collegata è ubicata presso un sito o un'ubicazione virtuale."@it ;
+                                                   rdfs:label "Digital Gallery"@en ,
+                                                              "Galleria Digitale"@it .
+
+
+###  http://www.semanticweb.org/museum#ERC-1155
+<http://www.semanticweb.org/museum#ERC-1155> rdf:type owl:Class ;
+                                             owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty <http://www.semanticweb.org/museum#tokenDiOpera> ;
+                                                                                          owl:someValuesFrom <http://www.semanticweb.org/museum#ArtExpression>
+                                                                                        ]
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty <http://www.semanticweb.org/museum#tokenDiOpera> ;
+                                                                                          owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                          owl:onClass <http://www.semanticweb.org/museum#TokenizedExpression1155>
+                                                                                        ]
+                                                                                      ) ;
+                                                                   rdf:type owl:Class
+                                                                 ] ;
+                                             rdfs:subClassOf <http://purl.org/vocab/frbr/core#Item> ,
+                                                             <http://www.semanticweb.org/museum#ERC-721> ,
+                                                             <http://www.semanticweb.org/museum#NFT> ;
+                                             rdfs:comment "Una classe ERC-1155 rappresenta una tipologia di Token Non Fungibile. Le opere a cui viene legato questo standard crypto hanno la peculiarità di avere una serie limitata di Token Non Fungibili."@it ;
+                                             rdfs:label "ERC-1155"@en ,
+                                                        "ERC-1155"@it .
+
+
+###  http://www.semanticweb.org/museum#ERC-721
+<http://www.semanticweb.org/museum#ERC-721> rdf:type owl:Class ;
+                                            owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty <http://www.semanticweb.org/museum#tokenDiOpera> ;
+                                                                                         owl:someValuesFrom <http://www.semanticweb.org/museum#ArtExpression>
+                                                                                       ]
+                                                                                       [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty <http://www.semanticweb.org/museum#tokenDiOpera> ;
+                                                                                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                         owl:onClass <http://www.semanticweb.org/museum#TokenizedExpression721>
+                                                                                       ]
+                                                                                     ) ;
+                                                                  rdf:type owl:Class
+                                                                ] ;
+                                            rdfs:subClassOf <http://purl.org/vocab/frbr/core#Expression> ,
+                                                            <http://purl.org/vocab/frbr/core#Item> ,
+                                                            <http://www.semanticweb.org/museum#ArtWork> ,
+                                                            <http://www.semanticweb.org/museum#NFT> ;
+                                            rdfs:comment "Una classe ERC-721 rappresenta una tipologia di Token Non Fungibile. Le opere a cui viene legato questo standard crypto hanno la peculiarità di avere un'unico Token Non Fungibile."@it ;
+                                            rdfs:label "ERC-721"@en ,
+                                                       "ERC-721"@it .
+
+
+###  http://www.semanticweb.org/museum#GIF
+<http://www.semanticweb.org/museum#GIF> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://www.semanticweb.org/museum#Video> ;
+                                        rdfs:comment "Una classe GIF rappresenta una tipologia specifica della classe Video. In questo caso viene rappresentato un qualsiasi video corto in formato GIF."@it ;
+                                        rdfs:label "GIF"@en ,
+                                                   "GIF"@it .
+
+
+###  http://www.semanticweb.org/museum#Gallery
+<http://www.semanticweb.org/museum#Gallery> rdf:type owl:Class ;
+                                            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty <http://www.semanticweb.org/museum#espone> ;
+                                                                  owl:someValuesFrom <http://www.semanticweb.org/museum#ArtExpression>
+                                                                ] ;
+                                            rdfs:comment "Una classe Galleria specifica l'ubicazione della classe Tipologia Opera."@it ;
+                                            rdfs:label "Galleria"@it ,
+                                                       "Gallery"@en .
+
+
+###  http://www.semanticweb.org/museum#GraphicDesigner
+<http://www.semanticweb.org/museum#GraphicDesigner> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.semanticweb.org/museum#MultimediaArtist> ;
+                                                    rdfs:comment "Una classe Disegnatore Grafico rappresenta una tipologia specifica della classe Artista Multimediale. In questo caso viene rappresentato un qualsiasi creatore digitale che crea immagini in formato digitale."@it ;
+                                                    rdfs:label "DIsegnatore Grafico"@it ,
+                                                               "Graphic Designer"@en .
+
+
+###  http://www.semanticweb.org/museum#Image
+<http://www.semanticweb.org/museum#Image> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://www.semanticweb.org/museum#MultimediaWork> ;
+                                          rdfs:comment "Una classe Immagine rappresenta una tipologia specifica della classe Opera Multimediale. In questo caso viene rappresentato un'immagine qualsiasi digitale."@it ;
+                                          rdfs:label "Image"@en ,
+                                                     "Immagine"@it .
+
+
+###  http://www.semanticweb.org/museum#LiteraryWork
+<http://www.semanticweb.org/museum#LiteraryWork> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://www.semanticweb.org/museum#ArtWork> ;
+                                                 rdfs:comment "Una classe Opera Letteraria rappresenta una tipologia specifica della classe TIpologia Opera. In questo caso viene rappresentato un qualsiasi Opera Letteraria. Questa classe corrisponde ad una macro categoria."@it ;
+                                                 rdfs:label "Literary Work"@en ,
+                                                            "Opera Letteraria"@it .
+
+
+###  http://www.semanticweb.org/museum#MultimediaArtist
+<http://www.semanticweb.org/museum#MultimediaArtist> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.semanticweb.org/museum#Artist> ;
+                                                     rdfs:comment "Una classe Artista Multimediale rappresenta una tipologia specifica della classe Artista. In questo caso viene rappresentato un qualsiasi creatore digitale."@it ;
+                                                     rdfs:label "Artista Multimediale"@it ,
+                                                                "Content creator"@en .
+
+
+###  http://www.semanticweb.org/museum#MultimediaWork
+<http://www.semanticweb.org/museum#MultimediaWork> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.semanticweb.org/museum#ArtWork> ;
+                                                   rdfs:comment "Una classe Opera Multimediale rappresenta una tipologia specifica della classe TIpologia Opera. In questo caso viene rappresentato un qualsiasi opera multimediale. Questa classe corrisponde ad una macro categoria."@it ;
+                                                   rdfs:label "Multimedia Work"@en ,
+                                                              "Opera Multimediale"@it .
+
+
+###  http://www.semanticweb.org/museum#Musician
+<http://www.semanticweb.org/museum#Musician> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://www.semanticweb.org/museum#Artist> ;
+                                             rdfs:comment "Una classe Musicista rappresenta una tipologia specifica della classe Artista. In questo caso viene rappresentato un qualsiasi musicista."@it ;
+                                             rdfs:label "Musician"@en ,
+                                                        "Musicista"@it .
+
+
+###  http://www.semanticweb.org/museum#NFT
+<http://www.semanticweb.org/museum#NFT> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://purl.org/vocab/frbr/core#Manifestation> ;
+                                        rdfs:comment "Una classe Token Non Fungibile rappresenta un token, ossia un itpo speciale di token crittografico che rappresenta qualcosa di unico. Rappresentano degli \"oggetti digitali\" che, nello specifico, materializzano sottoforma di codifica binaria le opera d'arte digitali ma non solo; rappresentano anche un corrispettivo digitale di un'opera d'arte fisica."@it ;
+                                        rdfs:label "Non-Fungible Token"@en ,
+                                                   "Token Non Fungibile"@it .
+
+
+###  http://www.semanticweb.org/museum#Paint
+<http://www.semanticweb.org/museum#Paint> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://www.semanticweb.org/museum#ArtWork> ;
+                                          rdfs:comment "Una classe Dipinto rappresenta una tipologia specifica della classe TIpologia Opera. In questo caso viene rappresentato un qualsiasi dipinto."@en ;
+                                          rdfs:label "Dipinto"@it ,
+                                                     "Paint"@en .
+
+
+###  http://www.semanticweb.org/museum#Painter
+<http://www.semanticweb.org/museum#Painter> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://www.semanticweb.org/museum#Artist> ;
+                                            rdfs:comment "Una classe Pittore rappresenta una tipologia specifica della classe Artista. In questo caso viene rappresentato un qualsiasi pittore."@it ;
+                                            rdfs:label "Painter"@en ,
+                                                       "Pittore"@it .
+
+
+###  http://www.semanticweb.org/museum#PhysicalGallery
+<http://www.semanticweb.org/museum#PhysicalGallery> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.semanticweb.org/museum#Gallery> ;
+                                                    rdfs:comment "Una classe Galleria Fisica rappresenta una specifica classe Galleria. In questo caso viene inteso che un'opera d'arte ad essa collegata è ubicata presso un indirizzo fisico."@it ;
+                                                    rdfs:label "Galleria Fisica"@it ,
+                                                               "Physical Gallery"@en .
+
+
+###  http://www.semanticweb.org/museum#Sculptor
+<http://www.semanticweb.org/museum#Sculptor> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://www.semanticweb.org/museum#Artist> ;
+                                             rdfs:comment "Una classe Scultore rappresenta una tipologia specifica della classe Artista. In questo caso viene rappresentato un qualsiasi scultore."@it ;
+                                             rdfs:label "Sculptor"@en ,
+                                                        "Scultore"@it .
+
+
+###  http://www.semanticweb.org/museum#Sculpture
+<http://www.semanticweb.org/museum#Sculpture> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://www.semanticweb.org/museum#ArtWork> ;
+                                              rdfs:comment "Una classe Scultura rappresenta una tipologia specifica della classe TIpologia Opera. In questo caso viene rappresentato una qualsiasi scultura."@it ;
+                                              rdfs:label "Sculpture"@en ,
+                                                         "Scultura"@it .
+
+
+###  http://www.semanticweb.org/museum#ShortFilm
+<http://www.semanticweb.org/museum#ShortFilm> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://www.semanticweb.org/museum#Video> ;
+                                              rdfs:comment "Una classe Cortometraggio rappresenta una tipologia specifica della classe VIdeo. In questo caso viene rappresentato un qualsiasi video con una durata non necessariamente lunga."@it ;
+                                              rdfs:label "Cortometraggio"@it ,
+                                                         "Short Film"@en .
+
+
+###  http://www.semanticweb.org/museum#ShortStory
+<http://www.semanticweb.org/museum#ShortStory> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.semanticweb.org/museum#LiteraryWork> ;
+                                               rdfs:comment "Una classe Mini Storia rappresenta una tipologia specifica della classe Opera Letteraria. In questo caso viene rappresentato una qualsiasi racconto breve."@it ;
+                                               rdfs:label "Mini-Storia"@it ,
+                                                          "Short Story"@en .
+
+
+###  http://www.semanticweb.org/museum#TokenizedExpression1155
+<http://www.semanticweb.org/museum#TokenizedExpression1155> rdf:type owl:Class ;
+                                                            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty <http://www.semanticweb.org/museum#operaTokenizzata> ;
+                                                                                  owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                                                  owl:onClass <http://www.semanticweb.org/museum#NFT>
+                                                                                ] ;
+                                                            rdfs:subClassOf <http://www.semanticweb.org/museum#ArtExpression> ,
+                                                                            <http://www.semanticweb.org/museum#TokenizedExpression721> ;
+                                                            rdfs:comment "Una classe Opera Tokenizzata-1155 rappresenta una tipologia specifica di espressione dell'opera d'arte. In questo caso viene rappresentata la realizzazione di un'opera tokenizzata. Il numero 1155 rappresenta il legame con uno standard crypto: l'opera tokenizzata nella fattispecie ha una serie limitata di token unici."@it ;
+                                                            rdfs:label "OperaTokenizzata1155"@it ,
+                                                                       "TokenizedExpression1155"@en .
+
+
+###  http://www.semanticweb.org/museum#TokenizedExpression721
+<http://www.semanticweb.org/museum#TokenizedExpression721> rdf:type owl:Class ;
+                                                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                                 owl:onProperty <http://www.semanticweb.org/museum#operaTokenizzata> ;
+                                                                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                 owl:onClass <http://www.semanticweb.org/museum#NFT>
+                                                                               ] ;
+                                                           rdfs:subClassOf <http://purl.org/vocab/frbr/core#Work> ,
+                                                                           <http://www.semanticweb.org/museum#ArtExpression> ;
+                                                           rdfs:comment "Una classe Opera Tokenizzata-721 rappresenta una tipologia specifica di espressione dell'opera d'arte. In questo caso viene rappresentata la realizzazione di un'opera tokenizzata. Il numero 721 rappresenta il legame con uno standard crypto: l'opera tokenizzata nella fattispecie ha un unico token ad essa legata."@it ;
+                                                           rdfs:label "OperaTokenizzata721"@it ,
+                                                                      "TokenizedExpression721"@en .
+
+
+###  http://www.semanticweb.org/museum#Track
+<http://www.semanticweb.org/museum#Track> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://www.semanticweb.org/museum#ArtWork> ;
+                                          rdfs:comment "Una classe Brano Musicale rappresenta una tipologia specifica della classe TIpologia Opera. In questo caso viene rappresentato un qualsiasi brano musicale."@it ;
+                                          rdfs:label "Brano Musicale"@it ,
+                                                     "Track"@en .
+
+
+###  http://www.semanticweb.org/museum#User
+<http://www.semanticweb.org/museum#User> rdf:type owl:Class ;
+                                         owl:equivalentClass [ owl:intersectionOf ( <http://xmlns.com/foaf/0.1/Person>
+                                                                                    [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty <http://www.semanticweb.org/museum#haCarrello> ;
+                                                                                      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                      owl:onClass <http://www.semanticweb.org/museum#Basket>
+                                                                                    ]
+                                                                                    [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty <http://www.semanticweb.org/museum#haWallet> ;
+                                                                                      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                      owl:onClass <http://www.semanticweb.org/museum#Wallet>
+                                                                                    ]
+                                                                                  ) ;
+                                                               rdf:type owl:Class
+                                                             ] ,
+                                                             [ rdf:type owl:Class ;
+                                                               owl:oneOf ( <http://www.semanticweb.org/museum#User1>
+                                                                           <http://www.semanticweb.org/museum#User2>
+                                                                         )
+                                                             ] ;
+                                         rdfs:subClassOf <http://xmlns.com/foaf/0.1/Person> ;
+                                         owl:disjointWith <http://xmlns.com/foaf/0.1/Organization> ;
+                                         rdfs:comment "Una classe Utente corrisponde al profilo di una determinata Persona."@it ;
+                                         rdfs:label "User"@en ,
+                                                    "Utente"@it .
+
+
+###  http://www.semanticweb.org/museum#Video
+<http://www.semanticweb.org/museum#Video> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://www.semanticweb.org/museum#MultimediaWork> ;
+                                          rdfs:comment "Una classe VIdeo rappresenta una tipologia specifica della classe Opera Multimediale. In questo caso viene rappresentato un qualsiasi video. Questa classe corrisponde ad una macro categoria."@en ;
+                                          rdfs:label "Video"@en ,
+                                                     "Video"@it .
+
+
+###  http://www.semanticweb.org/museum#VideoMaker
+<http://www.semanticweb.org/museum#VideoMaker> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.semanticweb.org/museum#MultimediaArtist> ;
+                                               rdfs:comment "Una classe Video Maker rappresenta una tipologia specifica della classe Artista Multimediale. In questo caso viene rappresentato un qualsiasi motatore di video."@it ;
+                                               rdfs:label "Video Maker"@en ,
+                                                          "Video Maker"@it .
+
+
+###  http://www.semanticweb.org/museum#Wallet
+<http://www.semanticweb.org/museum#Wallet> rdf:type owl:Class ;
+                                           owl:equivalentClass [ rdf:type owl:Class ;
+                                                                 owl:oneOf ( <http://www.semanticweb.org/museum#WalletUser1>
+                                                                             <http://www.semanticweb.org/museum#WalletUser2>
+                                                                           )
+                                                               ] ;
+                                           rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection> ;
+                                           rdfs:comment "Una classe Portafoglio rappresenta una particolare collezione di NFT posseduti dall'utente, con il corrispettivo valore di cryptovalute come proprietà della classe."@it ;
+                                           rdfs:label "Portafoglio"@it ,
+                                                      "Wallet"@en .
+
+
+###  http://www.semanticweb.org/museum#Writer
+<http://www.semanticweb.org/museum#Writer> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://www.semanticweb.org/museum#Artist> ;
+                                           rdfs:comment "Una classe Scrittore rappresenta una tipologia specifica della classe Artista. In questo caso viene rappresentato un qualsiasi scrittore."@it ;
+                                           rdfs:label "Scrittore"@it ,
+                                                      "Writer"@en .
+
+
+###  http://www.semanticweb.org/museum#3DDesigner
+<http://www.semanticweb.org/museum#3DDesigner> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.semanticweb.org/museum#MultimediaArtist> ;
+                                               rdfs:comment "Una classe Modellatore 3D rappresenta una tipologia specifica della classe Artista Multimediale. In questo caso viene rappresentato un qualsiasi creatore digitale che crea contenuti 3D in formato digitale."@it ;
+                                               rdfs:label "3DDesigner"@en ,
+                                                          "Modellatore 3D"@it .
+
+
+###  http://xmlns.com/foaf/0.1/Agent
+<http://xmlns.com/foaf/0.1/Agent> rdf:type owl:Class ;
+                                  rdfs:comment "Una classe Agent è una classe di agenti. Una sottoclasse ben nota è Persona, che rappresenta le persone. Altri tipi di agenti includono Organizzazione e Gruppo."@en ;
+                                  rdfs:label "Agent"@en ,
+                                             "Agente"@it .
+
+
+###  http://xmlns.com/foaf/0.1/Group
+<http://xmlns.com/foaf/0.1/Group> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://xmlns.com/foaf/0.1/Agent> ;
+                                  rdfs:comment "Un Gruppo rappresemta una collezione di agenti (e può svolgere esso stesso il ruolo di un Agente, cioè qualcosa che può eseguire azioni)."@en ;
+                                  rdfs:label "Group"@en ,
+                                             "Gruppo"@it .
+
+
+###  http://xmlns.com/foaf/0.1/Organization
+<http://xmlns.com/foaf/0.1/Organization> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://xmlns.com/foaf/0.1/Agent> ;
+                                         owl:disjointWith <http://xmlns.com/foaf/0.1/Person> ;
+                                         rdfs:comment "Una classe Organizzazione rappresenta un tipo di Agente corrispondente a istituzioni sociali come aziende, società, ecc."@en ;
+                                         rdfs:label "Organization"@en ,
+                                                    "Organizzazione"@it .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://xmlns.com/foaf/0.1/Agent> ;
+                                   rdfs:comment "Una classe Persona rappresenta persone. Qualcosa/Qualcuno è una Persona indipendentemente che sia viva o morta."@en ;
+                                   rdfs:label "Person"@en ,
+                                              "Persona"@it .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/museum#BasketUser1
+<http://www.semanticweb.org/museum#BasketUser1> rdf:type owl:NamedIndividual ,
+                                                         <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection> ,
+                                                         <http://www.semanticweb.org/museum#Basket> ;
+                                                <http://www.semanticweb.org/museum#carrelloDi> <http://www.semanticweb.org/museum#User1> ;
+                                                <http://www.semanticweb.org/museum#contiene> <http://www.semanticweb.org/museum#TokenCenacolo1> ;
+                                                rdfs:label "Carrelo Utente 1"@it .
+
+
+###  http://www.semanticweb.org/museum#BasketUser2
+<http://www.semanticweb.org/museum#BasketUser2> rdf:type owl:NamedIndividual ,
+                                                         <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection> ,
+                                                         <http://www.semanticweb.org/museum#Basket> ;
+                                                <http://www.semanticweb.org/museum#carrelloDi> <http://www.semanticweb.org/museum#User2> ;
+                                                rdfs:label "Carrelo Utente 2"@it .
+
+
+###  http://www.semanticweb.org/museum#Beeple
+<http://www.semanticweb.org/museum#Beeple> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/vocab/frbr/core#Person> ,
+                                                    <http://purl.org/vocab/frbr/core#ResponsableEntity> ,
+                                                    <http://www.semanticweb.org/museum#Artist> ,
+                                                    <http://www.semanticweb.org/museum#GraphicDesigner> ,
+                                                    <http://www.semanticweb.org/museum#MultimediaArtist> ;
+                                           <http://purl.org/vocab/frbr/core#creator> <http://www.semanticweb.org/museum#Everydays> ;
+                                           <http://www.semanticweb.org/museum#haCreato> <http://www.semanticweb.org/museum#Everydays> ;
+                                           <http://www.semanticweb.org/museum#haDisegnato> <http://www.semanticweb.org/museum#Everydays> ;
+                                           <http://www.semanticweb.org/museum#nomeArtista> "Beeple" ;
+                                           rdfs:label "Beeple" .
+
+
+###  http://www.semanticweb.org/museum#Cenacolo
+<http://www.semanticweb.org/museum#Cenacolo> rdf:type owl:NamedIndividual ,
+                                                      <http://purl.org/vocab/frbr/core#Expression> ,
+                                                      <http://purl.org/vocab/frbr/core#Work> ,
+                                                      <http://www.semanticweb.org/museum#ArtExpression> ,
+                                                      <http://www.semanticweb.org/museum#ArtWork> ,
+                                                      <http://www.semanticweb.org/museum#Paint> ;
+                                             <http://purl.org/vocab/frbr/core#creatorOf> <http://www.semanticweb.org/museum#Leonardo_Da_Vinci> ;
+                                             <http://purl.org/vocab/frbr/core#embodiment> <http://www.semanticweb.org/museum#TokenCenacolo1> ,
+                                                                                          <http://www.semanticweb.org/museum#TokenCenacolo2> ;
+                                             <http://www.semanticweb.org/museum#creataDa> <http://www.semanticweb.org/museum#Leonardo_Da_Vinci> ;
+                                             <http://www.semanticweb.org/museum#dipintoDa> <http://www.semanticweb.org/museum#Leonardo_Da_Vinci> ;
+                                             <http://www.semanticweb.org/museum#espostaIn> <http://www.semanticweb.org/museum#MuseoDelCenacoloVInciano> ;
+                                             <http://www.semanticweb.org/museum#haToken> <http://www.semanticweb.org/museum#TokenCenacolo1> ,
+                                                                                         <http://www.semanticweb.org/museum#TokenCenacolo2> ;
+                                             <http://www.semanticweb.org/museum#titoloOpera> "Cenacolo" .
+
+
+###  http://www.semanticweb.org/museum#Everydays
+<http://www.semanticweb.org/museum#Everydays> rdf:type owl:NamedIndividual ,
+                                                       <http://purl.org/vocab/frbr/core#Expression> ,
+                                                       <http://purl.org/vocab/frbr/core#Work> ,
+                                                       <http://www.semanticweb.org/museum#ArtExpression> ,
+                                                       <http://www.semanticweb.org/museum#ArtWork> ,
+                                                       <http://www.semanticweb.org/museum#Image> ,
+                                                       <http://www.semanticweb.org/museum#MultimediaWork> ;
+                                              <http://purl.org/vocab/frbr/core#creatorOf> <http://www.semanticweb.org/museum#Beeple> ;
+                                              <http://purl.org/vocab/frbr/core#embodiment> <http://www.semanticweb.org/museum#TokenEverydays> ;
+                                              <http://www.semanticweb.org/museum#creataDa> <http://www.semanticweb.org/museum#Beeple> ;
+                                              <http://www.semanticweb.org/museum#disegnatoDa> <http://www.semanticweb.org/museum#Beeple> ;
+                                              <http://www.semanticweb.org/museum#espostaIn> <http://www.semanticweb.org/museum#PieceEarth2> ;
+                                              <http://www.semanticweb.org/museum#haToken> <http://www.semanticweb.org/museum#TokenEverydays> ;
+                                              <http://www.semanticweb.org/museum#titoloOpera> "Everydays: The First 5,000 Days" ;
+                                              rdfs:label "Everydays"@en .
+
+
+###  http://www.semanticweb.org/museum#Leonardo_Da_Vinci
+<http://www.semanticweb.org/museum#Leonardo_Da_Vinci> rdf:type owl:NamedIndividual ,
+                                                               <http://purl.org/vocab/frbr/core#Person> ,
+                                                               <http://purl.org/vocab/frbr/core#ResponsableEntity> ,
+                                                               <http://www.semanticweb.org/museum#Artist> ,
+                                                               <http://www.semanticweb.org/museum#Painter> ;
+                                                      <http://purl.org/vocab/frbr/core#creator> <http://www.semanticweb.org/museum#Cenacolo> ,
+                                                                                                <http://www.semanticweb.org/museum#Monna_Lisa> ;
+                                                      <http://www.semanticweb.org/museum#haCreato> <http://www.semanticweb.org/museum#Cenacolo> ,
+                                                                                                   <http://www.semanticweb.org/museum#Monna_Lisa> ;
+                                                      <http://www.semanticweb.org/museum#haDipinto> <http://www.semanticweb.org/museum#Cenacolo> ,
+                                                                                                    <http://www.semanticweb.org/museum#Monna_Lisa> ;
+                                                      <http://www.semanticweb.org/museum#cognomeArtista> "Da VInci" ;
+                                                      <http://www.semanticweb.org/museum#nomeArtista> "Leonardo" ;
+                                                      <http://xmlns.com/foaf/0.1/name> "Leonardo Da Vinci" .
+
+
+###  http://www.semanticweb.org/museum#Monna_Lisa
+<http://www.semanticweb.org/museum#Monna_Lisa> rdf:type owl:NamedIndividual ,
+                                                        <http://purl.org/vocab/frbr/core#Expression> ,
+                                                        <http://purl.org/vocab/frbr/core#Work> ,
+                                                        <http://www.semanticweb.org/museum#ArtExpression> ,
+                                                        <http://www.semanticweb.org/museum#ArtWork> ,
+                                                        <http://www.semanticweb.org/museum#Paint> ;
+                                               <http://purl.org/vocab/frbr/core#creatorOf> <http://www.semanticweb.org/museum#Leonardo_Da_Vinci> ;
+                                               <http://purl.org/vocab/frbr/core#embodiment> <http://www.semanticweb.org/museum#TokenMonna> ;
+                                               <http://www.semanticweb.org/museum#creataDa> <http://www.semanticweb.org/museum#Leonardo_Da_Vinci> ;
+                                               <http://www.semanticweb.org/museum#dipintoDa> <http://www.semanticweb.org/museum#Leonardo_Da_Vinci> ;
+                                               <http://www.semanticweb.org/museum#haToken> <http://www.semanticweb.org/museum#TokenMonna> ;
+                                               <http://www.semanticweb.org/museum#titoloOpera> "Monna Lisa" ;
+                                               rdfs:label "Monna Lisa"@it .
+
+
+###  http://www.semanticweb.org/museum#MuseoDelCenacoloVInciano
+<http://www.semanticweb.org/museum#MuseoDelCenacoloVInciano> rdf:type owl:NamedIndividual ,
+                                                                      <http://www.semanticweb.org/museum#Gallery> ,
+                                                                      <http://www.semanticweb.org/museum#PhysicalGallery> ;
+                                                             <http://www.semanticweb.org/museum#espone> <http://www.semanticweb.org/museum#Cenacolo> ;
+                                                             <http://www.semanticweb.org/museum#nomeGalleria> "Museo Del Cenacolo Vinciano" ;
+                                                             <http://www.semanticweb.org/museum#ubicazioneFIsica> "Piazza di Santa Maria delle Grazie, 2, 20123 Milano MI" ;
+                                                             rdfs:label "Museo Del Cenacolo Vinciano"@it .
+
+
+###  http://www.semanticweb.org/museum#PieceEarth2
+<http://www.semanticweb.org/museum#PieceEarth2> rdf:type owl:NamedIndividual ,
+                                                         <http://www.semanticweb.org/museum#DigitalGallery> ,
+                                                         <http://www.semanticweb.org/museum#Gallery> ;
+                                                <http://www.semanticweb.org/museum#espone> <http://www.semanticweb.org/museum#Everydays> ;
+                                                <http://www.semanticweb.org/museum#nomeGalleria> "Manhattan" ;
+                                                <http://www.semanticweb.org/museum#ubicazioneDIgitale> "https://earth2.io/7y3254trbi4778" ;
+                                                rdfs:label "Piece of Earth 2"@en .
+
+
+###  http://www.semanticweb.org/museum#TokenCenacolo1
+<http://www.semanticweb.org/museum#TokenCenacolo1> rdf:type owl:NamedIndividual ,
+                                                            <http://purl.org/vocab/frbr/core#Expression> ,
+                                                            <http://purl.org/vocab/frbr/core#Item> ,
+                                                            <http://purl.org/vocab/frbr/core#Manifestation> ,
+                                                            <http://purl.org/vocab/frbr/core#Work> ,
+                                                            <http://www.semanticweb.org/museum#ArtWork> ,
+                                                            <http://www.semanticweb.org/museum#ERC-1155> ,
+                                                            <http://www.semanticweb.org/museum#ERC-721> ,
+                                                            <http://www.semanticweb.org/museum#NFT> ;
+                                                   <http://purl.org/vocab/frbr/core#embodimentOf> <http://www.semanticweb.org/museum#Cenacolo> ;
+                                                   <http://www.semanticweb.org/museum#contenutoIn> <http://www.semanticweb.org/museum#BasketUser1> ;
+                                                   <http://www.semanticweb.org/museum#posizionatoIn> <http://www.semanticweb.org/museum#WalletUser1> ;
+                                                   <http://www.semanticweb.org/museum#tokenDi> <http://www.semanticweb.org/museum#Cenacolo> ;
+                                                   <http://www.semanticweb.org/museum#èPossedutoDa> <http://www.semanticweb.org/museum#User1> ;
+                                                   <http://www.semanticweb.org/museum#idBlockchain> "0x7949635E2877ef8ca37B8526507AC214B0423Ebf" ;
+                                                   <http://www.semanticweb.org/museum#nomeNFT> "Cenacolo #1" ;
+                                                   <http://www.semanticweb.org/museum#valoreNFT> 30 .
+
+
+###  http://www.semanticweb.org/museum#TokenCenacolo2
+<http://www.semanticweb.org/museum#TokenCenacolo2> rdf:type owl:NamedIndividual ,
+                                                            <http://purl.org/vocab/frbr/core#Expression> ,
+                                                            <http://purl.org/vocab/frbr/core#Item> ,
+                                                            <http://purl.org/vocab/frbr/core#Manifestation> ,
+                                                            <http://purl.org/vocab/frbr/core#Work> ,
+                                                            <http://www.semanticweb.org/museum#ArtWork> ,
+                                                            <http://www.semanticweb.org/museum#ERC-1155> ,
+                                                            <http://www.semanticweb.org/museum#ERC-721> ,
+                                                            <http://www.semanticweb.org/museum#NFT> ;
+                                                   <http://purl.org/vocab/frbr/core#embodimentOf> <http://www.semanticweb.org/museum#Cenacolo> ;
+                                                   <http://www.semanticweb.org/museum#tokenDi> <http://www.semanticweb.org/museum#Cenacolo> ;
+                                                   <http://www.semanticweb.org/museum#idBlockchain> "0x7949635E2877ef8ca37B8526507AC214B0423Ebt" ;
+                                                   <http://www.semanticweb.org/museum#nomeNFT> "Cenacolo #2" ;
+                                                   <http://www.semanticweb.org/museum#valoreNFT> 40 .
+
+
+###  http://www.semanticweb.org/museum#TokenEverydays
+<http://www.semanticweb.org/museum#TokenEverydays> rdf:type owl:NamedIndividual ,
+                                                            <http://purl.org/vocab/frbr/core#Expression> ,
+                                                            <http://purl.org/vocab/frbr/core#Item> ,
+                                                            <http://purl.org/vocab/frbr/core#Manifestation> ,
+                                                            <http://purl.org/vocab/frbr/core#Work> ,
+                                                            <http://www.semanticweb.org/museum#ArtWork> ,
+                                                            <http://www.semanticweb.org/museum#ERC-721> ,
+                                                            <http://www.semanticweb.org/museum#NFT> ;
+                                                   <http://purl.org/vocab/frbr/core#embodimentOf> <http://www.semanticweb.org/museum#Everydays> ;
+                                                   <http://www.semanticweb.org/museum#tokenDi> <http://www.semanticweb.org/museum#Everydays> ;
+                                                   <http://www.semanticweb.org/museum#idBlockchain> "0x7949635E2877ef8ca37B65237507AC214B0423Ebf" ;
+                                                   <http://www.semanticweb.org/museum#nomeNFT> "Everydays #1" ;
+                                                   <http://www.semanticweb.org/museum#valoreNFT> 355 .
+
+
+###  http://www.semanticweb.org/museum#TokenMonna
+<http://www.semanticweb.org/museum#TokenMonna> rdf:type owl:NamedIndividual ,
+                                                        <http://purl.org/vocab/frbr/core#Expression> ,
+                                                        <http://purl.org/vocab/frbr/core#Item> ,
+                                                        <http://purl.org/vocab/frbr/core#Manifestation> ,
+                                                        <http://purl.org/vocab/frbr/core#Work> ,
+                                                        <http://www.semanticweb.org/museum#ArtWork> ,
+                                                        <http://www.semanticweb.org/museum#ERC-721> ,
+                                                        <http://www.semanticweb.org/museum#NFT> ;
+                                               <http://purl.org/vocab/frbr/core#embodimentOf> <http://www.semanticweb.org/museum#Monna_Lisa> ;
+                                               <http://www.semanticweb.org/museum#tokenDi> <http://www.semanticweb.org/museum#Monna_Lisa> ;
+                                               <http://www.semanticweb.org/museum#idBlockchain> "0x7949635E2877ef8ca37B6526507AC214B0423Ebf" ;
+                                               <http://www.semanticweb.org/museum#nomeNFT> "Monna Lisa #1" ;
+                                               <http://www.semanticweb.org/museum#valoreNFT> 23 .
+
+
+###  http://www.semanticweb.org/museum#User1
+<http://www.semanticweb.org/museum#User1> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/museum#User> ,
+                                                   <http://xmlns.com/foaf/0.1/Agent> ,
+                                                   <http://xmlns.com/foaf/0.1/Person> ;
+                                          <http://www.semanticweb.org/museum#haCarrello> <http://www.semanticweb.org/museum#BasketUser1> ;
+                                          <http://www.semanticweb.org/museum#haWallet> <http://www.semanticweb.org/museum#WalletUser1> ;
+                                          <http://www.semanticweb.org/museum#possiede> <http://www.semanticweb.org/museum#TokenCenacolo1> ;
+                                          <http://xmlns.com/foaf/0.1/age> 18 ;
+                                          <http://xmlns.com/foaf/0.1/birthday> "2003-01-01" ;
+                                          <http://xmlns.com/foaf/0.1/firstName> "Giorgia" ;
+                                          <http://xmlns.com/foaf/0.1/gender> "Femmina" ;
+                                          <http://xmlns.com/foaf/0.1/lastName> "Broglia" ;
+                                          <http://xmlns.com/foaf/0.1/mbox> "gB@gmail.com" ;
+                                          <http://xmlns.com/foaf/0.1/surname> "gBros" ;
+                                          rdfs:label "Utente 1"@it .
+
+
+###  http://www.semanticweb.org/museum#User2
+<http://www.semanticweb.org/museum#User2> rdf:type owl:NamedIndividual ,
+                                                   <http://www.semanticweb.org/museum#User> ,
+                                                   <http://xmlns.com/foaf/0.1/Agent> ,
+                                                   <http://xmlns.com/foaf/0.1/Person> ;
+                                          <http://www.semanticweb.org/museum#haCarrello> <http://www.semanticweb.org/museum#BasketUser2> ;
+                                          <http://www.semanticweb.org/museum#haWallet> <http://www.semanticweb.org/museum#WalletUser2> ;
+                                          <http://xmlns.com/foaf/0.1/age> 23 ;
+                                          <http://xmlns.com/foaf/0.1/birthday> "1997-08-19" ;
+                                          <http://xmlns.com/foaf/0.1/firstName> "Matteo" ;
+                                          <http://xmlns.com/foaf/0.1/gender> "Maschio" ;
+                                          <http://xmlns.com/foaf/0.1/lastName> "Miceli" ;
+                                          <http://xmlns.com/foaf/0.1/mbox> "mm@gmail.com" ;
+                                          <http://xmlns.com/foaf/0.1/surname> "matMiceli" ;
+                                          rdfs:label "Utente 2"@it .
+
+
+###  http://www.semanticweb.org/museum#WalletUser1
+<http://www.semanticweb.org/museum#WalletUser1> rdf:type owl:NamedIndividual ,
+                                                         <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection> ,
+                                                         <http://www.semanticweb.org/museum#Wallet> ;
+                                                <http://www.semanticweb.org/museum#haPosizioneIn> <http://www.semanticweb.org/museum#TokenCenacolo1> ;
+                                                <http://www.semanticweb.org/museum#walletDi> <http://www.semanticweb.org/museum#User1> ;
+                                                <http://www.semanticweb.org/museum#contoCrypto> 200 ;
+                                                rdfs:label "Portafoglio Utente 1"@it .
+
+
+###  http://www.semanticweb.org/museum#WalletUser2
+<http://www.semanticweb.org/museum#WalletUser2> rdf:type owl:NamedIndividual ,
+                                                         <http://www.ontologydesignpatterns.org/cp/owl/bag.owl#Collection> ,
+                                                         <http://www.semanticweb.org/museum#Wallet> ;
+                                                <http://www.semanticweb.org/museum#walletDi> <http://www.semanticweb.org/museum#User2> ;
+                                                <http://www.semanticweb.org/museum#contoCrypto> 145 ;
+                                                rdfs:label "Portafoglio Utente 2"@it .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( <http://www.semanticweb.org/museum#Cenacolo>
+                        <http://www.semanticweb.org/museum#Monna_Lisa>
+                      )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( <http://www.semanticweb.org/museum#TokenCenacolo1>
+                        <http://www.semanticweb.org/museum#TokenCenacolo2>
+                        <http://www.semanticweb.org/museum#TokenMonna>
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
