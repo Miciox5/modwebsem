@@ -4,16 +4,16 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.com/museum/> .
+@base <http://www.semanticweb.com/museum> .
 
-<http://www.semanticweb.com/museum/> rdf:type owl:Ontology ;
-                                      <http://purl.org/dc/elements/1.1/creator> "Matteo Miceli" ;
-                                      <http://purl.org/dc/elements/1.1/date> "2021-07-23" ;
-                                      <http://purl.org/dc/elements/1.1/description> "L'ontologia museum rappresenta la la base di conoscenza di un e-commerce ove è acquisto di NFT legati ad opere d'arte. Oltre ad avere uno stretto legame con la risorsa FRBR (per poter sfruttare una descrizione formale di opere d'arte), incorpora parte del vocabolario FOAF per la descrizione di un utente nell'e-commerce." ;
-                                      <http://purl.org/dc/elements/1.1/title> "Museum - La casa degli NFT" ;
-                                      <http://purl.org/vocab/vann#preferredNamespacePrefix> "http://www.museum.com/museum" ;
-                                      <http://purl.org/vocab/vann#preferredNamespaceUri> "museum" ;
-                                      rdfs:label "museum" .
+<http://www.semanticweb.com/museum> rdf:type owl:Ontology ;
+                                     <http://purl.org/dc/elements/1.1/creator> "Matteo Miceli" ;
+                                     <http://purl.org/dc/elements/1.1/date> "2021-07-23" ;
+                                     <http://purl.org/dc/elements/1.1/description> "L'ontologia museum rappresenta la la base di conoscenza di un e-commerce ove è acquisto di NFT legati ad opere d'arte. Oltre ad avere uno stretto legame con la risorsa FRBR (per poter sfruttare una descrizione formale di opere d'arte), incorpora parte del vocabolario FOAF per la descrizione di un utente nell'e-commerce." ;
+                                     <http://purl.org/dc/elements/1.1/title> "Museum - La casa degli NFT" ;
+                                     <http://purl.org/vocab/vann#preferredNamespacePrefix> "http://www.museum.com/museum" ;
+                                     <http://purl.org/vocab/vann#preferredNamespaceUri> "museum" ;
+                                     rdfs:label "museum" .
 
 #################################################################
 #    Annotation properties
@@ -435,6 +435,12 @@
                                                             rdfs:label "size"@en .
 
 
+###  http://www.semanticweb.com/museum/ubicazione
+:ubicazione rdf:type owl:DatatypeProperty ;
+            rdfs:domain <http://www.semanticweb.org/museum#Gallery> ;
+            rdfs:range xsd:string .
+
+
 ###  http://www.semanticweb.org/museum#cognomeArtista
 <http://www.semanticweb.org/museum#cognomeArtista> rdf:type owl:DatatypeProperty ;
                                                    rdfs:domain <http://www.semanticweb.org/museum#Artist> ;
@@ -497,6 +503,7 @@
 
 ###  http://www.semanticweb.org/museum#ubicazioneDIgitale
 <http://www.semanticweb.org/museum#ubicazioneDIgitale> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:subPropertyOf :ubicazione ;
                                                        rdfs:domain <http://www.semanticweb.org/museum#DigitalGallery> ;
                                                        rdfs:range xsd:string ;
                                                        rdfs:comment "Indirizzo virtuale (URL) della galleria in cui è ubicata l'opera d'arte."@it ;
@@ -506,6 +513,7 @@
 
 ###  http://www.semanticweb.org/museum#ubicazioneFIsica
 <http://www.semanticweb.org/museum#ubicazioneFIsica> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:subPropertyOf :ubicazione ;
                                                      rdfs:domain <http://www.semanticweb.org/museum#PhysicalGallery> ;
                                                      rdfs:range xsd:string ;
                                                      rdfs:comment "Indirizzo fisico della galleria in cui è ubicata l'opera d'arte."@it ;
@@ -710,12 +718,13 @@
 
 ###  http://www.semanticweb.org/museum#ERC-1155
 <http://www.semanticweb.org/museum#ERC-1155> rdf:type owl:Class ;
-                                             owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                                          owl:onProperty <http://www.semanticweb.org/museum#tokenDiOpera> ;
+                                             owl:equivalentClass <http://www.semanticweb.org/museum#ERC-721> ,
+                                                                 [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty <http://www.semanticweb.org/museum#tokenDi> ;
                                                                                           owl:someValuesFrom <http://www.semanticweb.org/museum#ArtExpression>
                                                                                         ]
                                                                                         [ rdf:type owl:Restriction ;
-                                                                                          owl:onProperty <http://www.semanticweb.org/museum#tokenDiOpera> ;
+                                                                                          owl:onProperty <http://www.semanticweb.org/museum#tokenDi> ;
                                                                                           owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                                                           owl:onClass <http://www.semanticweb.org/museum#TokenizedExpression1155>
                                                                                         ]
@@ -723,7 +732,6 @@
                                                                    rdf:type owl:Class
                                                                  ] ;
                                              rdfs:subClassOf <http://purl.org/vocab/frbr/core#Item> ,
-                                                             <http://www.semanticweb.org/museum#ERC-721> ,
                                                              <http://www.semanticweb.org/museum#NFT> ;
                                              rdfs:comment "Una classe ERC-1155 rappresenta una tipologia di Token Non Fungibile. Le opere a cui viene legato questo standard crypto hanno la peculiarità di avere una serie limitata di Token Non Fungibili."@it ;
                                              rdfs:label "ERC-1155"@en ,
@@ -733,20 +741,19 @@
 ###  http://www.semanticweb.org/museum#ERC-721
 <http://www.semanticweb.org/museum#ERC-721> rdf:type owl:Class ;
                                             owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                                         owl:onProperty <http://www.semanticweb.org/museum#tokenDiOpera> ;
+                                                                                         owl:onProperty <http://www.semanticweb.org/museum#tokenDi> ;
                                                                                          owl:someValuesFrom <http://www.semanticweb.org/museum#ArtExpression>
                                                                                        ]
                                                                                        [ rdf:type owl:Restriction ;
-                                                                                         owl:onProperty <http://www.semanticweb.org/museum#tokenDiOpera> ;
+                                                                                         owl:onProperty <http://www.semanticweb.org/museum#tokenDi> ;
                                                                                          owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                                                          owl:onClass <http://www.semanticweb.org/museum#TokenizedExpression721>
                                                                                        ]
                                                                                      ) ;
                                                                   rdf:type owl:Class
                                                                 ] ;
-                                            rdfs:subClassOf <http://purl.org/vocab/frbr/core#Expression> ,
-                                                            <http://purl.org/vocab/frbr/core#Item> ,
-                                                            <http://www.semanticweb.org/museum#ArtWork> ,
+                                            rdfs:subClassOf <http://purl.org/vocab/frbr/core#Item> ,
+                                                            <http://www.semanticweb.org/museum#ERC-1155> ,
                                                             <http://www.semanticweb.org/museum#NFT> ;
                                             rdfs:comment "Una classe ERC-721 rappresenta una tipologia di Token Non Fungibile. Le opere a cui viene legato questo standard crypto hanno la peculiarità di avere un'unico Token Non Fungibile."@it ;
                                             rdfs:label "ERC-721"@en ,
@@ -887,7 +894,7 @@
 ###  http://www.semanticweb.org/museum#TokenizedExpression1155
 <http://www.semanticweb.org/museum#TokenizedExpression1155> rdf:type owl:Class ;
                                                             owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                                  owl:onProperty <http://www.semanticweb.org/museum#operaTokenizzata> ;
+                                                                                  owl:onProperty <http://www.semanticweb.org/museum#haToken> ;
                                                                                   owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
                                                                                   owl:onClass <http://www.semanticweb.org/museum#NFT>
                                                                                 ] ;
@@ -901,12 +908,11 @@
 ###  http://www.semanticweb.org/museum#TokenizedExpression721
 <http://www.semanticweb.org/museum#TokenizedExpression721> rdf:type owl:Class ;
                                                            owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty <http://www.semanticweb.org/museum#operaTokenizzata> ;
+                                                                                 owl:onProperty <http://www.semanticweb.org/museum#haToken> ;
                                                                                  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                                                  owl:onClass <http://www.semanticweb.org/museum#NFT>
                                                                                ] ;
-                                                           rdfs:subClassOf <http://purl.org/vocab/frbr/core#Work> ,
-                                                                           <http://www.semanticweb.org/museum#ArtExpression> ;
+                                                           rdfs:subClassOf <http://www.semanticweb.org/museum#ArtExpression> ;
                                                            rdfs:comment "Una classe Opera Tokenizzata-721 rappresenta una tipologia specifica di espressione dell'opera d'arte. In questo caso viene rappresentata la realizzazione di un'opera tokenizzata. Il numero 721 rappresenta il legame con uno standard crypto: l'opera tokenizzata nella fattispecie ha un unico token ad essa legata."@it ;
                                                            rdfs:label "OperaTokenizzata721"@it ,
                                                                       "TokenizedExpression721"@en .
@@ -1066,7 +1072,9 @@
                                                       <http://purl.org/vocab/frbr/core#Work> ,
                                                       <http://www.semanticweb.org/museum#ArtExpression> ,
                                                       <http://www.semanticweb.org/museum#ArtWork> ,
-                                                      <http://www.semanticweb.org/museum#Paint> ;
+                                                      <http://www.semanticweb.org/museum#Paint> ,
+                                                      <http://www.semanticweb.org/museum#TokenizedExpression1155> ,
+                                                      <http://www.semanticweb.org/museum#TokenizedExpression721> ;
                                              <http://purl.org/vocab/frbr/core#creatorOf> <http://www.semanticweb.org/museum#Leonardo_Da_Vinci> ;
                                              <http://purl.org/vocab/frbr/core#embodiment> <http://www.semanticweb.org/museum#TokenCenacolo1> ,
                                                                                           <http://www.semanticweb.org/museum#TokenCenacolo2> ;
@@ -1085,7 +1093,8 @@
                                                        <http://www.semanticweb.org/museum#ArtExpression> ,
                                                        <http://www.semanticweb.org/museum#ArtWork> ,
                                                        <http://www.semanticweb.org/museum#Image> ,
-                                                       <http://www.semanticweb.org/museum#MultimediaWork> ;
+                                                       <http://www.semanticweb.org/museum#MultimediaWork> ,
+                                                       <http://www.semanticweb.org/museum#TokenizedExpression721> ;
                                               <http://purl.org/vocab/frbr/core#creatorOf> <http://www.semanticweb.org/museum#Beeple> ;
                                               <http://purl.org/vocab/frbr/core#embodiment> <http://www.semanticweb.org/museum#TokenEverydays> ;
                                               <http://www.semanticweb.org/museum#creataDa> <http://www.semanticweb.org/museum#Beeple> ;
@@ -1119,7 +1128,8 @@
                                                         <http://purl.org/vocab/frbr/core#Work> ,
                                                         <http://www.semanticweb.org/museum#ArtExpression> ,
                                                         <http://www.semanticweb.org/museum#ArtWork> ,
-                                                        <http://www.semanticweb.org/museum#Paint> ;
+                                                        <http://www.semanticweb.org/museum#Paint> ,
+                                                        <http://www.semanticweb.org/museum#TokenizedExpression721> ;
                                                <http://purl.org/vocab/frbr/core#creatorOf> <http://www.semanticweb.org/museum#Leonardo_Da_Vinci> ;
                                                <http://purl.org/vocab/frbr/core#embodiment> <http://www.semanticweb.org/museum#TokenMonna> ;
                                                <http://www.semanticweb.org/museum#creataDa> <http://www.semanticweb.org/museum#Leonardo_Da_Vinci> ;
@@ -1134,6 +1144,7 @@
                                                                       <http://www.semanticweb.org/museum#Gallery> ,
                                                                       <http://www.semanticweb.org/museum#PhysicalGallery> ;
                                                              <http://www.semanticweb.org/museum#espone> <http://www.semanticweb.org/museum#Cenacolo> ;
+                                                             :ubicazione "Piazza di Santa Maria delle Grazie, 2, 20123 Milano MI" ;
                                                              <http://www.semanticweb.org/museum#nomeGalleria> "Museo Del Cenacolo Vinciano" ;
                                                              <http://www.semanticweb.org/museum#ubicazioneFIsica> "Piazza di Santa Maria delle Grazie, 2, 20123 Milano MI" ;
                                                              rdfs:label "Museo Del Cenacolo Vinciano"@it .
@@ -1144,6 +1155,7 @@
                                                          <http://www.semanticweb.org/museum#DigitalGallery> ,
                                                          <http://www.semanticweb.org/museum#Gallery> ;
                                                 <http://www.semanticweb.org/museum#espone> <http://www.semanticweb.org/museum#Everydays> ;
+                                                :ubicazione "https://earth2.io/7y3254trbi4778" ;
                                                 <http://www.semanticweb.org/museum#nomeGalleria> "Manhattan" ;
                                                 <http://www.semanticweb.org/museum#ubicazioneDIgitale> "https://earth2.io/7y3254trbi4778" ;
                                                 rdfs:label "Piece of Earth 2"@en .
@@ -1151,11 +1163,8 @@
 
 ###  http://www.semanticweb.org/museum#TokenCenacolo1
 <http://www.semanticweb.org/museum#TokenCenacolo1> rdf:type owl:NamedIndividual ,
-                                                            <http://purl.org/vocab/frbr/core#Expression> ,
                                                             <http://purl.org/vocab/frbr/core#Item> ,
                                                             <http://purl.org/vocab/frbr/core#Manifestation> ,
-                                                            <http://purl.org/vocab/frbr/core#Work> ,
-                                                            <http://www.semanticweb.org/museum#ArtWork> ,
                                                             <http://www.semanticweb.org/museum#ERC-1155> ,
                                                             <http://www.semanticweb.org/museum#ERC-721> ,
                                                             <http://www.semanticweb.org/museum#NFT> ;
@@ -1171,11 +1180,8 @@
 
 ###  http://www.semanticweb.org/museum#TokenCenacolo2
 <http://www.semanticweb.org/museum#TokenCenacolo2> rdf:type owl:NamedIndividual ,
-                                                            <http://purl.org/vocab/frbr/core#Expression> ,
                                                             <http://purl.org/vocab/frbr/core#Item> ,
                                                             <http://purl.org/vocab/frbr/core#Manifestation> ,
-                                                            <http://purl.org/vocab/frbr/core#Work> ,
-                                                            <http://www.semanticweb.org/museum#ArtWork> ,
                                                             <http://www.semanticweb.org/museum#ERC-1155> ,
                                                             <http://www.semanticweb.org/museum#ERC-721> ,
                                                             <http://www.semanticweb.org/museum#NFT> ;
@@ -1188,11 +1194,9 @@
 
 ###  http://www.semanticweb.org/museum#TokenEverydays
 <http://www.semanticweb.org/museum#TokenEverydays> rdf:type owl:NamedIndividual ,
-                                                            <http://purl.org/vocab/frbr/core#Expression> ,
                                                             <http://purl.org/vocab/frbr/core#Item> ,
                                                             <http://purl.org/vocab/frbr/core#Manifestation> ,
-                                                            <http://purl.org/vocab/frbr/core#Work> ,
-                                                            <http://www.semanticweb.org/museum#ArtWork> ,
+                                                            <http://www.semanticweb.org/museum#ERC-1155> ,
                                                             <http://www.semanticweb.org/museum#ERC-721> ,
                                                             <http://www.semanticweb.org/museum#NFT> ;
                                                    <http://purl.org/vocab/frbr/core#embodimentOf> <http://www.semanticweb.org/museum#Everydays> ;
@@ -1204,11 +1208,9 @@
 
 ###  http://www.semanticweb.org/museum#TokenMonna
 <http://www.semanticweb.org/museum#TokenMonna> rdf:type owl:NamedIndividual ,
-                                                        <http://purl.org/vocab/frbr/core#Expression> ,
                                                         <http://purl.org/vocab/frbr/core#Item> ,
                                                         <http://purl.org/vocab/frbr/core#Manifestation> ,
-                                                        <http://purl.org/vocab/frbr/core#Work> ,
-                                                        <http://www.semanticweb.org/museum#ArtWork> ,
+                                                        <http://www.semanticweb.org/museum#ERC-1155> ,
                                                         <http://www.semanticweb.org/museum#ERC-721> ,
                                                         <http://www.semanticweb.org/museum#NFT> ;
                                                <http://purl.org/vocab/frbr/core#embodimentOf> <http://www.semanticweb.org/museum#Monna_Lisa> ;
